@@ -123,71 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &214223355
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1164328234615206, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_Name
-      value: axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.389388
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 18.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.36046576
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4045817768345548, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6897145136661558787, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6897145136661558787, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
 --- !u!1 &218797490
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axePrefab: {fileID: 1164328234615206, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-  shootForce: 10
+  shootForce: 100
 --- !u!4 &225049860
 Transform:
   m_ObjectHideFlags: 0
@@ -334,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 225049858}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 1.44, z: -4.91}
+  m_LocalPosition: {x: -4.768, y: 1.44, z: -4.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -366,7 +301,7 @@ Transform:
   m_GameObject: {fileID: 575399760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.389388, y: -0.44, z: 0.36046576}
+  m_LocalPosition: {x: -5.389388, y: -1.06, z: 0.36046576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -387,11 +322,11 @@ MonoBehaviour:
   woodDiscPrefab: {fileID: 4973500173067001178, guid: f53582609f92c09448d1aef8a51dc35d, type: 3}
   jointConnectorPrefab: {fileID: 6623647019134642019, guid: dcf06b8e86a78e343b19595a5275df97, type: 3}
   cuttingTool: {fileID: 1164328234615206, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-  numberOfDiscs: 10
-  discSpacing: 1
+  numberOfDiscs: 20
+  discSpacing: 0.2
   freezeBaseDisc: 1
-  trunkJointBreakForce: 5000
-  trunkJointBreakTorque: 5000
+  trunkJointBreakForce: 200000
+  trunkJointBreakTorque: 200000
   axeForceRequirement: 100
 --- !u!1001 &663291376
 PrefabInstance:
@@ -1092,7 +1027,6 @@ SceneRoots:
   - {fileID: 1207236927}
   - {fileID: 1613750745}
   - {fileID: 663291376}
-  - {fileID: 214223355}
   - {fileID: 7117520870186931137}
   - {fileID: 575399762}
   - {fileID: 225049860}
