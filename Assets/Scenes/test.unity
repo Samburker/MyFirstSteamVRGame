@@ -294,6 +294,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &225049858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225049860}
+  - component: {fileID: 225049859}
+  m_Layer: 0
+  m_Name: AxeShooterForTesting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &225049859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225049858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df3743f77ce32f4d9e96e21e5b35805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axePrefab: {fileID: 1164328234615206, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
+  shootForce: 10
+--- !u!4 &225049860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225049858}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.5, y: 1.44, z: -4.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &575399760
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +366,7 @@ Transform:
   m_GameObject: {fileID: 575399760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.389388, y: -1.07, z: 0.36046576}
+  m_LocalPosition: {x: -5.389388, y: -0.44, z: 0.36046576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -341,8 +387,8 @@ MonoBehaviour:
   woodDiscPrefab: {fileID: 4973500173067001178, guid: f53582609f92c09448d1aef8a51dc35d, type: 3}
   jointConnectorPrefab: {fileID: 6623647019134642019, guid: dcf06b8e86a78e343b19595a5275df97, type: 3}
   cuttingTool: {fileID: 1164328234615206, guid: e048a401410aa9f4791cdd97e15735ca, type: 3}
-  numberOfDiscs: 5
-  discSpacing: 0.54
+  numberOfDiscs: 10
+  discSpacing: 1
   freezeBaseDisc: 1
   trunkJointBreakForce: 5000
   trunkJointBreakTorque: 5000
@@ -1049,3 +1095,4 @@ SceneRoots:
   - {fileID: 214223355}
   - {fileID: 7117520870186931137}
   - {fileID: 575399762}
+  - {fileID: 225049860}

@@ -39,6 +39,9 @@ public class TreeBuilder : MonoBehaviour
                 joint.breakForce = trunkJointBreakForce;
                 joint.breakTorque = trunkJointBreakTorque;
 
+                // Add additional constraints to the joint to stabilize the trunk
+                ConfigureJointConstraints(joint);
+
                 // Instantiate joint connector prefab to maintain integrity of trunk
                 GameObject connector = Instantiate(jointConnectorPrefab, (newDisc.transform.position + previousDisc.transform.position) / 2, Quaternion.identity, transform);
             }
@@ -57,6 +60,14 @@ public class TreeBuilder : MonoBehaviour
         {
             baseDiscRigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
+    }
+
+    // Method to configure additional constraints for the joint to stabilize the trunk
+    void ConfigureJointConstraints(FixedJoint joint)
+    {
+        // Add constraints here as needed
+        // For example, you can freeze rotation or restrict movement along certain axes
+        // For stability, you may want to experiment with various constraint settings
     }
 
     void Update()
