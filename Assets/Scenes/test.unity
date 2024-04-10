@@ -275,8 +275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   woodDiscPrefab: {fileID: 2767341272475504928, guid: f53582609f92c09448d1aef8a51dc35d, type: 3}
   jointConnectorPrefab: {fileID: 6623647019134642019, guid: dcf06b8e86a78e343b19595a5275df97, type: 3}
+  cuttingTool: {fileID: 0}
   numberOfDiscs: 5
-  discSpacing: 0.2
+  discSpacing: 0.3
+  freezeBaseDisc: 1
 --- !u!1001 &663291376
 PrefabInstance:
   m_ObjectHideFlags: 0
