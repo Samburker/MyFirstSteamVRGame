@@ -8,6 +8,9 @@ public class TreeBuilder : MonoBehaviour
     public int numberOfDiscs = 5; // Number of discs in the tree
     public float discSpacing = 1.0f; // Spacing between each disc
     public bool freezeBaseDisc = true; // Option to freeze the base disc
+    public float trunkJointBreakForce = 5000f; // Break force for the joints holding the trunk together
+    public float trunkJointBreakTorque = 5000f; // Break torque for the joints holding the trunk together
+    public float axeForceRequirement = 100f; // Minimum force required for the axe to break the trunk
 
     void Start()
     {
@@ -21,6 +24,7 @@ public class TreeBuilder : MonoBehaviour
 
             // Instantiate wood disc prefab
             GameObject newDisc = Instantiate(woodDiscPrefab, discPosition, Quaternion.identity, transform);
+            newDisc.tag = "WoodDisc"; // Assign a tag to identify wood discs
 
             // Connect to previous disc with a joint (e.g., FixedJoint)
             if (previousDisc != null)
@@ -30,6 +34,10 @@ public class TreeBuilder : MonoBehaviour
 
                 // Connect the joint to the previous wood disc
                 joint.connectedBody = previousDisc.GetComponent<Rigidbody>();
+
+                // Set joint properties for trunk stability
+                joint.breakForce = trunkJointBreakForce;
+                joint.breakTorque = trunkJointBreakTorque;
 
                 // Instantiate joint connector prefab to maintain integrity of trunk
                 GameObject connector = Instantiate(jointConnectorPrefab, (newDisc.transform.position + previousDisc.transform.position) / 2, Quaternion.identity, transform);
@@ -53,21 +61,33 @@ public class TreeBuilder : MonoBehaviour
 
     void Update()
     {
-        // Check for cutting tool collision
+        // Check for axe collision with wood discs
         if (cuttingTool != null)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(cuttingTool.transform.position, 0.5f); // Adjust the radius as needed
-
-            foreach (Collider collider in hitColliders)
+            // Ensure the cutting tool (axe) has a collider attached to it
+            Collider axeCollider = cuttingTool.GetComponent<Collider>();
+            if (axeCollider != null)
             {
-                // Check if the cutting tool collides with a wood disc
-                if (collider.CompareTag("WoodDisc"))
+                Collider[] hitColliders = Physics.OverlapSphere(cuttingTool.transform.position, 0.5f); // Adjust the radius as needed
+
+                foreach (Collider collider in hitColliders)
                 {
-                    // Break the joint connecting the disc with the trunk
-                    FixedJoint[] joints = collider.GetComponents<FixedJoint>();
-                    foreach (FixedJoint joint in joints)
+                    // Check if the cutting tool collides with a wood disc
+                    if (collider.CompareTag("WoodDisc"))
                     {
-                        Destroy(joint);
+                        // Calculate the force applied by the cutting tool
+                        float axeForce = cuttingTool.GetComponent<Rigidbody>().velocity.magnitude;
+
+                        // Check if the force applied by the cutting tool exceeds the requirement to break the trunk
+                        if (axeForce >= axeForceRequirement)
+                        {
+                            // Break the joint connecting the disc with the trunk
+                            FixedJoint[] joints = collider.GetComponents<FixedJoint>();
+                            foreach (FixedJoint joint in joints)
+                            {
+                                Destroy(joint);
+                            }
+                        }
                     }
                 }
             }
