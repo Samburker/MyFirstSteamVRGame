@@ -6,6 +6,8 @@ TagManager:
   tags:
   - WoodDisc
   - Axe
+  - Belt
+  - BeltObject
   layers:
   - Default
   - TransparentFX
