@@ -66,33 +66,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0dc58dc73894db148a816e19a0eb3386, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8287092264544408215}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0dc58dc73894db148a816e19a0eb3386, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -267141099079886285}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0dc58dc73894db148a816e19a0eb3386, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4963949979439875579}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0dc58dc73894db148a816e19a0eb3386, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6696419494064756944}
   m_SourcePrefab: {fileID: 100100000, guid: 0dc58dc73894db148a816e19a0eb3386, type: 3}
 --- !u!1 &4973500173067001178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0dc58dc73894db148a816e19a0eb3386, type: 3}
   m_PrefabInstance: {fileID: 5315379917252042763}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8287092264544408215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4973500173067001178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5629bc27b80fc264abc5c6aafc9efd7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  breakForceRequirement: 10
-  slicedDiscPrefab: {fileID: 7509159015746916285, guid: dab0c747d5fb74348b9079df9f250214, type: 3}
 --- !u!54 &-267141099079886285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,3 +128,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4398484046405902820, guid: 0dc58dc73894db148a816e19a0eb3386, type: 3}
+--- !u!114 &6696419494064756944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973500173067001178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5629bc27b80fc264abc5c6aafc9efd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakForceRequirement: 1
+  slicedDiscPrefab: {fileID: 7509159015746916285, guid: dab0c747d5fb74348b9079df9f250214, type: 3}
