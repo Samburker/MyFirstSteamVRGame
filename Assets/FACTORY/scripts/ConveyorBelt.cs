@@ -6,12 +6,12 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-       
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                MoveObject(rb.gameObject);
-            }
+        // Check if the collider belongs to an object with a Rigidbody component
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            MoveObject(rb.gameObject);
+        }
     }
 
     private void MoveObject(GameObject obj)
@@ -20,4 +20,5 @@ public class ConveyorBelt : MonoBehaviour
         obj.transform.Translate(transform.forward * moveSpeed * Time.deltaTime, Space.World);
     }
 
+  
 }
