@@ -9,6 +9,7 @@ TagManager:
   - Belt
   - BeltObject
   - FalseItem
+  - Toy
   layers:
   - Default
   - TransparentFX
