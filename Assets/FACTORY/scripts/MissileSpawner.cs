@@ -51,7 +51,7 @@ public class MissileSpawner : MonoBehaviour
         if (hangarDoor != null)
         {
             hangarDoor.OpenDoor();
-            missileStacking.StartStackingTimer();
+            missileStacking.StartStackingTimer(numMissilesToSpawn);
 
         }
     }

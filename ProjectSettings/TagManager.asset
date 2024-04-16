@@ -11,6 +11,7 @@ TagManager:
   - FalseItem
   - Toy
   - Missile
+  - Pallet
   layers:
   - Default
   - TransparentFX
