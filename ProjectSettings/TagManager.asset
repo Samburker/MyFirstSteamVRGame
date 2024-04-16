@@ -10,6 +10,7 @@ TagManager:
   - BeltObject
   - FalseItem
   - Toy
+  - Missile
   layers:
   - Default
   - TransparentFX
