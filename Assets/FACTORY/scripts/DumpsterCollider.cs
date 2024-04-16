@@ -4,6 +4,7 @@ public class DumpsterCollider : MonoBehaviour
 {
     private Health playerHealth; // Reference to the Health script attached to the player
     public AudioClip damageSound; // Sound to play when taking damage
+    public AudioClip successSound; // Sound to play when correct item has been destroyed
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class DumpsterCollider : MonoBehaviour
         // Check if the colliding object has a specific tag
         if (other.CompareTag("FalseItem"))
         {
+            AudioManager.Instance.PlaySoundEffect(successSound);
             // Destroy the specific item
             Destroy(other.gameObject);
         }
