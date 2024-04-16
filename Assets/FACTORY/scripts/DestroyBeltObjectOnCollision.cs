@@ -8,5 +8,11 @@ public class DestroyBeltObjectOnCollision : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        if (collision.collider.CompareTag("FalseItem"))
+        {
+            Debug.Log("Lose health");
+            Destroy(collision.gameObject);
+        }
+
     }
 }
