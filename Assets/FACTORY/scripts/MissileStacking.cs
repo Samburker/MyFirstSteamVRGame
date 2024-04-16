@@ -10,24 +10,33 @@ public class MissileStacking : MonoBehaviour
     private bool isStacked; // Flag to track if missiles are stacked
     private bool hasFailed; // Flag to track if the fail sound has been played
 
+    private HangarDoor hangarDoor; // Reference to HangarDoor script
+
     private void Start()
     {
         remainingTime = stackingTimeLimit;
-        isStacked = false;
-        hasFailed = false;
+        hangarDoor = FindObjectOfType<HangarDoor>(); // Find HangarDoor script in the scene
     }
 
     // Method to start the stacking timer
     public void StartStackingTimer()
     {
-        remainingTime = stackingTimeLimit;
-        isStacked = false;
-        hasFailed = false;
+        if (hangarDoor != null && hangarDoor.IsDoorOpen())
+        {
+            remainingTime = stackingTimeLimit;
+            isStacked = false;
+            hasFailed = false;
+        }
+        else
+        {
+            Debug.LogWarning("Cannot start stacking timer: Hangar door has not opened yet.");
+        }
     }
 
     private void Update()
     {
-        if (!isStacked)
+        Debug.Log(remainingTime);
+        if (hangarDoor != null && hangarDoor.IsDoorOpen() && !isStacked)
         {
             remainingTime -= Time.deltaTime;
 

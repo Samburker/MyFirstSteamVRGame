@@ -31,6 +31,12 @@ public class HangarDoor : MonoBehaviour
         }
     }
 
+    // Method to check if the door is open
+    public bool IsDoorOpen()
+    {
+        return isOpen;
+    }
+
     private System.Collections.IEnumerator MoveDoor(Vector3 targetPosition)
     {
         float elapsedTime = 0f;
