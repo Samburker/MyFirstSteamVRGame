@@ -260,23 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetHeight: 5
-  moveDuration: 2
-  delayBeforeOpen: 5
---- !u!114 &104679799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104679794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d9ddaa5614a2040a82685188fd3613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetHeight: 5
-  moveDuration: 2
-  delayBeforeOpen: 5
+  moveDuration: 5
+  openSound: {fileID: 8300000, guid: ebc6515841150b44b96210aef4822d5f, type: 3}
 --- !u!65 &104679800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4222,6 +4207,7 @@ MonoBehaviour:
   numMissilesToSpawn: 10
   spawnDelay: 0.1
   startDelay: 2
+  hangarDoorDelay: 5
 --- !u!4 &1133780442
 Transform:
   m_ObjectHideFlags: 0
@@ -6106,9 +6092,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4347e660e1efa4597136369cb7b004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackingTimeLimit: 30
+  stackingTimeLimit: 2
   successSound: {fileID: 0}
-  failSound: {fileID: 0}
+  failSound: {fileID: 8300000, guid: 7361d16080ce8bf47a01c3af6cc36785, type: 3}
 --- !u!1 &1580384172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
@@ -7861,9 +7847,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1000013212466252, guid: d885e290456a887418a2fd556c1b1517, type: 3}
       insertIndex: -1
       addedObject: {fileID: 104679798}
-    - targetCorrespondingSourceObject: {fileID: 1000013212466252, guid: d885e290456a887418a2fd556c1b1517, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 104679799}
     - targetCorrespondingSourceObject: {fileID: 1000013212466252, guid: d885e290456a887418a2fd556c1b1517, type: 3}
       insertIndex: -1
       addedObject: {fileID: 104679800}

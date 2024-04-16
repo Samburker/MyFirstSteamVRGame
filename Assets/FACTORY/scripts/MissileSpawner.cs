@@ -6,6 +6,7 @@ public class MissileSpawner : MonoBehaviour
     public int numMissilesToSpawn = 10; // Number of missiles to spawn
     public float spawnDelay = 1f; // Delay between each missile spawn
     public float startDelay = 2f; // Delay before the spawning starts
+    public float hangarDoorDelay = 5f; // Delay before opening the hangar door
 
     private int missilesSpawned = 0;
     private bool isSpawning = false;
@@ -19,6 +20,9 @@ public class MissileSpawner : MonoBehaviour
     {
         isSpawning = true;
         InvokeRepeating("SpawnMissile", 0f, spawnDelay);
+
+        // Call the HangarDoor script's OpenDoor method after a delay
+        Invoke("OpenHangarDoor", hangarDoorDelay);
     }
 
     private void SpawnMissile()
@@ -36,6 +40,16 @@ public class MissileSpawner : MonoBehaviour
         {
             // Cancel the InvokeRepeating once all missiles are spawned
             CancelInvoke("SpawnMissile");
+        }
+    }
+
+    private void OpenHangarDoor()
+    {
+        // Find the HangarDoor script in the scene and call its OpenDoor method
+        HangarDoor hangarDoor = FindObjectOfType<HangarDoor>();
+        if (hangarDoor != null)
+        {
+            hangarDoor.OpenDoor();
         }
     }
 }
