@@ -47,11 +47,9 @@ public class MissileSpawner : MonoBehaviour
     {
         // Find the HangarDoor script in the scene and call its OpenDoor method
         HangarDoor hangarDoor = FindObjectOfType<HangarDoor>();
-        MissileStacking missileStacking = FindAnyObjectByType<MissileStacking>();
         if (hangarDoor != null)
         {
             hangarDoor.OpenDoor();
-            missileStacking.StartStackingTimer(numMissilesToSpawn);
 
         }
     }

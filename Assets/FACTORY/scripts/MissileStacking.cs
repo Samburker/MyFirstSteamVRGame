@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MissileStacking : MonoBehaviour
 {
+    [Tooltip("Stacking timer starts when explicitly started.")]
     public float stackingTimeLimit = 30f; // Time limit for stacking missiles
     public AudioClip successSound; // Sound to play when stacking is successful
     public AudioClip failSound; // Sound to play when stacking fails
@@ -13,14 +14,10 @@ public class MissileStacking : MonoBehaviour
     private bool hasFailed; // Flag to track if the fail sound has been played
     private int totalMissiles; // Total number of missiles spawned
 
-    private HangarDoor hangarDoor; // Reference to HangarDoor script
     private Collider palletCollider; // Reference to the pallet collider
 
     private void Start()
     {
-        remainingTime = stackingTimeLimit;
-        hangarDoor = FindObjectOfType<HangarDoor>(); // Find HangarDoor script in the scene
-
         // Find the pallet collider in the scene
         palletCollider = GameObject.FindGameObjectWithTag(palletTag)?.GetComponent<Collider>();
     }
@@ -29,21 +26,14 @@ public class MissileStacking : MonoBehaviour
     public void StartStackingTimer(int totalMissiles)
     {
         this.totalMissiles = totalMissiles; // Set the total number of missiles
-        if (hangarDoor != null && hangarDoor.IsDoorOpen())
-        {
-            remainingTime = stackingTimeLimit;
-            isStacked = false;
-            hasFailed = false;
-        }
-        else
-        {
-            Debug.LogWarning("Cannot start stacking timer: Hangar door has not opened yet.");
-        }
+        remainingTime = stackingTimeLimit; // Initialize the timer
+        isStacked = false;
+        hasFailed = false;
     }
 
     private void Update()
     {
-        if (hangarDoor != null && hangarDoor.IsDoorOpen() && !isStacked)
+        if (!isStacked && remainingTime > 0f)
         {
             remainingTime -= Time.deltaTime;
 
@@ -69,9 +59,8 @@ public class MissileStacking : MonoBehaviour
 
                     // Calculate health points lost and reduce player's health
                     int healthLost = (totalMissiles - missilesOnPallet) * healthLostPerMissile;
-                    Debug.Log(missilesOnPallet);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().TakeDamage(healthLost); // Reduce player's health
-                    DestroyMissileObjects(); // destroy all missiles
+                    DestroyMissileObjects(); // Destroy all missiles
 
                     // Play appropriate sound effects
                     if (missilesOnPallet == totalMissiles)
