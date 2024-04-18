@@ -24,6 +24,8 @@ public class Zombie : MonoBehaviour
             // Reduce health
             currentHealth--;
             Debug.Log("Zombie health lost");
+            ZombieAudio zombieAudio = FindAnyObjectByType<ZombieAudio>();
+            zombieAudio.PlayHealthLossSound();
 
             // Check if health has reached zero
             if (currentHealth <= 0)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ZombieSpawner : MonoBehaviour
 {
     public GameObject zombiePrefab; // Reference to the zombie prefab to spawn
-    public Transform spawnPoint; // Spawn point for zombies
+    public Transform[] spawnPoints; // Array of spawn points for zombies
     public int maxZombies = 5; // Maximum number of zombies to spawn
     public bool spawnOnStart = false; // Whether to spawn zombies on start
     public GameObject groundReference; // Object whose y-position will be used as the ground level reference
@@ -18,7 +18,7 @@ public class ZombieSpawner : MonoBehaviour
         }
     }
 
-    // Method to spawn zombies around the spawn point
+    // Method to spawn zombies around the spawn points
     public void SpawnZombies()
     {
         if (groundReference == null)
@@ -34,11 +34,14 @@ public class ZombieSpawner : MonoBehaviour
 
         while (spawnPositions.Count < maxZombies)
         {
+            // Choose a random spawn point from the array
+            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
             // Generate a random angle around the spawn point
             float angle = Random.Range(0f, 360f);
             // Calculate the spawn position based on the angle and distance from the spawn point
             Vector3 spawnDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
-            Vector3 spawnPosition = spawnPoint.position + spawnDirection;
+            Vector3 spawnPosition = randomSpawnPoint.position + spawnDirection;
 
             // Set the y-coordinate of the spawn position to match the ground level
             spawnPosition.y = groundLevel;
