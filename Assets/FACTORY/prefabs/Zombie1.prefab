@@ -2667,7 +2667,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f6e7443b3ec06b84499d7e0e628b9066, type: 3}
   - {fileID: 8300000, guid: 372e4e89446f1cd429c7d7a114d89677, type: 3}
   - {fileID: 8300000, guid: 7aabc091a09145d4ba871b7cf43eb511, type: 3}
-  healthLossSound: {fileID: 0}
+  healthLossSound: {fileID: 8300000, guid: baf9016ecc06e1c4d9d29c7a52ae0e36, type: 3}
   minGrowlInterval: 5
   maxGrowlInterval: 10
 --- !u!82 &-1563693434403720264
