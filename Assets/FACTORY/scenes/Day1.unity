@@ -243,51 +243,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageSound: {fileID: 8300000, guid: 7361d16080ce8bf47a01c3af6cc36785, type: 3}
   successSound: {fileID: 8300000, guid: 1be9b8ddc74619d4fa8f4f051d203500, type: 3}
---- !u!1 &89179118
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 89179120}
-  - component: {fileID: 89179119}
-  m_Layer: 0
-  m_Name: zombie test die
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &89179119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89179118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470d1435dc219894485fa4012542e212, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombie: {fileID: 329062221774341286, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
---- !u!4 &89179120
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89179118}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.99, y: 1.98, z: 1.6926794}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &104679794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013212466252, guid: d885e290456a887418a2fd556c1b1517, type: 3}
@@ -1169,8 +1124,8 @@ Transform:
   m_GameObject: {fileID: 370492644}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.88, y: -0.21, z: -13.37}
-  m_LocalScale: {x: 1.21, y: 0.53, z: 10.05}
+  m_LocalPosition: {x: -8.476, y: -0.21, z: -9.575}
+  m_LocalScale: {x: 1.21, y: 0.53, z: 2.29}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1992881281}
@@ -3469,6 +3424,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -80.8
       objectReference: {fileID: 0}
+    - target: {fileID: 748670202467876744, guid: cdebefa9cede542489ec77a0e0261343, type: 3}
+      propertyPath: minImpactVelocity
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5594684405950363454, guid: cdebefa9cede542489ec77a0e0261343, type: 3}
       propertyPath: m_Mass
       value: 10
@@ -3767,7 +3726,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1069946985}
   - {fileID: 1617752059}
-  maxZombies: 5
+  maxZombies: 3
   spawnOnStart: 1
   groundReference: {fileID: 938604141}
   minDistance: 0.5
@@ -4017,8 +3976,8 @@ MonoBehaviour:
     weight: 1
   - prefab: {fileID: 7286248343172426150, guid: a1184f7fcbd1cc1498a2cd49cdd596b3, type: 3}
     weight: 1
-  minSpawnInterval: 0.5
-  maxSpawnInterval: 2
+  minSpawnInterval: 5
+  maxSpawnInterval: 10
 --- !u!4 &1023724809
 Transform:
   m_ObjectHideFlags: 0
@@ -7892,7 +7851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 121078, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_Layer
@@ -8871,7 +8830,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910443777}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9179,6 +9138,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2.01}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 702890793}
+  - {fileID: 370492645}
+  - {fileID: 1596075247}
   - {fileID: 1614368823313159863}
   - {fileID: 431917682}
   - {fileID: 1701626508}
@@ -9186,9 +9148,6 @@ Transform:
   - {fileID: 1183944808}
   - {fileID: 1347378800}
   - {fileID: 1059908724}
-  - {fileID: 1596075247}
-  - {fileID: 370492645}
-  - {fileID: 702890793}
   - {fileID: 1583147314}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9479,7 +9438,6 @@ SceneRoots:
   - {fileID: 398754264}
   - {fileID: 1046246195}
   - {fileID: 1992881281}
-  - {fileID: 89179120}
   - {fileID: 1681139257}
   - {fileID: 1611060095}
   - {fileID: 1187459924}
