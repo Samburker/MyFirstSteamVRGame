@@ -243,6 +243,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageSound: {fileID: 8300000, guid: 7361d16080ce8bf47a01c3af6cc36785, type: 3}
   successSound: {fileID: 8300000, guid: 1be9b8ddc74619d4fa8f4f051d203500, type: 3}
+--- !u!1 &89179118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 89179120}
+  - component: {fileID: 89179119}
+  m_Layer: 0
+  m_Name: zombie test die
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &89179119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89179118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470d1435dc219894485fa4012542e212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombie: {fileID: 329062221774341286, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
+--- !u!4 &89179120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89179118}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.99, y: 1.98, z: 1.6926794}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &104679794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013212466252, guid: d885e290456a887418a2fd556c1b1517, type: 3}
@@ -4465,7 +4510,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.14
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 159d8c4c0d04cd9478c33944ddcb0f45, type: 2}
   m_BuildHeightMesh: 0
@@ -9434,6 +9479,7 @@ SceneRoots:
   - {fileID: 398754264}
   - {fileID: 1046246195}
   - {fileID: 1992881281}
+  - {fileID: 89179120}
   - {fileID: 1681139257}
   - {fileID: 1611060095}
   - {fileID: 1187459924}

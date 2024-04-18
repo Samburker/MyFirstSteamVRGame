@@ -10,7 +10,11 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
-    
+    private void Update()
+    {
+        Debug.Log(currentHealth);
+    }
+
 
     // Method to decrease health points
     public void TakeDamage(int damageAmount)

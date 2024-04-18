@@ -19,7 +19,6 @@ public class DestroyBeltObjectOnCollision : MonoBehaviour
         }
         if (collision.collider.CompareTag("FalseItem"))
         {
-            Debug.Log("Lose health");
             // Call the TakeDamage method from the player's Health component to reduce health by 1
             playerHealth.TakeDamage(1);
 
