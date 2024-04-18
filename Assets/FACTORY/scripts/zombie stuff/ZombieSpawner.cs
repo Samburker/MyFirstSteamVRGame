@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ZombieSpawner : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class ZombieSpawner : MonoBehaviour
     public int maxZombies = 5; // Maximum number of zombies to spawn
     public bool spawnOnStart = false; // Whether to spawn zombies on start
     public GameObject groundReference; // Object whose y-position will be used as the ground level reference
+    public float minDistance = 2f; // Minimum distance between spawned zombies
 
     private void Start()
     {
@@ -28,7 +30,9 @@ public class ZombieSpawner : MonoBehaviour
         // Get the ground level from the reference object's y-position
         float groundLevel = groundReference.transform.position.y;
 
-        for (int i = 0; i < maxZombies; i++)
+        List<Vector3> spawnPositions = new List<Vector3>();
+
+        while (spawnPositions.Count < maxZombies)
         {
             // Generate a random angle around the spawn point
             float angle = Random.Range(0f, 360f);
@@ -39,9 +43,29 @@ public class ZombieSpawner : MonoBehaviour
             // Set the y-coordinate of the spawn position to match the ground level
             spawnPosition.y = groundLevel;
 
+            // Check if the new spawn position is too close to existing spawn positions
+            bool tooClose = false;
+            foreach (Vector3 existingPosition in spawnPositions)
+            {
+                if (Vector3.Distance(spawnPosition, existingPosition) < minDistance)
+                {
+                    tooClose = true;
+                    break;
+                }
+            }
+
+            if (tooClose)
+            {
+                // Skip this iteration if too close to existing zombies
+                continue;
+            }
+
             // Spawn the zombie at the calculated position
             GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
             // Optionally, you can set up any other properties of the spawned zombies here
+
+            // Add the spawn position to the list
+            spawnPositions.Add(spawnPosition);
         }
     }
 }

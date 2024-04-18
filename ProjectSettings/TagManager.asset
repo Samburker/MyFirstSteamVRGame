@@ -13,6 +13,8 @@ TagManager:
   - Missile
   - Pallet
   - Weapon
+  - Zombie
+  - Generator
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

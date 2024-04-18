@@ -5,7 +5,6 @@ public class Zombie : MonoBehaviour
 {
     public int maxHealth = 3; // Maximum health of the zombie
     public Animator animator; // Reference to the animator component
-    public Collider mainCollider; // Reference to the main collider used for collisions
     public List<Collider> ragdollColliders; // List of colliders for the ragdoll physics
     public List<Rigidbody> ragdollRigidbodies; // List of rigidbodies for the ragdoll physics
 
@@ -52,7 +51,5 @@ public class Zombie : MonoBehaviour
             rb.isKinematic = !enableRagdoll;
         }
 
-        // Enable/disable main collider
-        mainCollider.enabled = !enableRagdoll;
     }
 }
