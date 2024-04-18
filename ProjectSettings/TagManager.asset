@@ -15,6 +15,7 @@ TagManager:
   - Weapon
   - Zombie
   - Generator
+  - Target
   layers:
   - Default
   - TransparentFX

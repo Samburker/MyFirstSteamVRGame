@@ -3,37 +3,33 @@ using UnityEngine.AI;
 
 public class ZombieMovement : MonoBehaviour
 {
-    [HideInInspector] // Hide the target field in the Inspector
-    public Transform target; // Target for the zombie to move towards
-
+    private Transform player; // Reference to the player's transform
     private NavMeshAgent navMeshAgent; // Reference to the NavMeshAgent component
 
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>(); // Get the NavMeshAgent component
+        // Find the player GameObject using its tag
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        // If the target is not assigned, try to find it at runtime
-        if (target == null)
-        {
-            target = GameObject.FindWithTag("Player").transform; // Find player
-            if (target == null)
-            {
-                Debug.LogError("Target not found! Make sure there is an object with the 'Generator' tag in the scene.");
-                return;
-            }
-        }
+        // Get the NavMeshAgent component attached to the zombie
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
-        // Set the destination of the NavMeshAgent to the target's position
-        navMeshAgent.SetDestination(target.position);
+        // Set the initial destination to the player's position
+        SetDestination(player.position);
     }
 
     void Update()
     {
-        // If the zombie has reached its destination, stop moving
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        // Update the destination to the player's position if it has changed
+        SetDestination(player.position);
+    }
+
+    // Method to set the destination for the NavMeshAgent
+    private void SetDestination(Vector3 destination)
+    {
+        if (navMeshAgent != null && navMeshAgent.isActiveAndEnabled)
         {
-            // Optionally, trigger attack animation or behavior here
-            // For example: GetComponent<Animator>().SetTrigger("Attack");
+            navMeshAgent.SetDestination(destination);
         }
     }
 }
