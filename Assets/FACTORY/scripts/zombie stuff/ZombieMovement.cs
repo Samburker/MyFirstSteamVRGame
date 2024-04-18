@@ -15,7 +15,7 @@ public class ZombieMovement : MonoBehaviour
         // If the target is not assigned, try to find it at runtime
         if (target == null)
         {
-            target = GameObject.FindWithTag("Generator").transform; // Find the generator GameObject with the "Generator" tag
+            target = GameObject.FindWithTag("Player").transform; // Find player
             if (target == null)
             {
                 Debug.LogError("Target not found! Make sure there is an object with the 'Generator' tag in the scene.");
