@@ -12,6 +12,7 @@ TagManager:
   - Toy
   - Missile
   - Pallet
+  - Weapon
   layers:
   - Default
   - TransparentFX
