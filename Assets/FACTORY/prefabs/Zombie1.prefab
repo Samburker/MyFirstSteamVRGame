@@ -766,7 +766,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548363270174808903}
   serializedVersion: 4
-  m_Mass: 1.875
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -897,7 +897,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696191642689899214}
   serializedVersion: 4
-  m_Mass: 1.875
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1058,7 +1058,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836615893786013965}
   serializedVersion: 4
-  m_Mass: 3.125
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2546,6 +2546,7 @@ MonoBehaviour:
   - {fileID: 6534372690219792425}
   ragdollRigidbodies:
   - {fileID: 6774495472637084017}
+  destructionDelay: 10
 --- !u!136 &3238884944696494214
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3490,7 +3491,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7478079058741212813}
   serializedVersion: 4
-  m_Mass: 3.125
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

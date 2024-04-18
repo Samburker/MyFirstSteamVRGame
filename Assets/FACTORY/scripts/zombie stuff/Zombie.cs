@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Zombie : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Zombie : MonoBehaviour
     public Animator animator; // Reference to the animator component
     public List<Collider> ragdollColliders; // List of colliders for the ragdoll physics
     public List<Rigidbody> ragdollRigidbodies; // List of rigidbodies for the ragdoll physics
+    public float destructionDelay = 5f; // Delay before destroying the zombie
 
     private int currentHealth; // Current health of the zombie
 
@@ -24,14 +26,15 @@ public class Zombie : MonoBehaviour
             // Reduce health
             currentHealth--;
             Debug.Log("Zombie health lost");
-            ZombieAudio zombieAudio = FindAnyObjectByType<ZombieAudio>();
-            zombieAudio.PlayHealthLossSound();
 
             // Check if health has reached zero
             if (currentHealth <= 0)
             {
                 // Enable ragdoll physics
                 EnableRagdoll(true);
+
+                // Start coroutine to destroy the zombie after a delay
+                StartCoroutine(DestroyAfterDelay(destructionDelay));
             }
         }
     }
@@ -52,6 +55,12 @@ public class Zombie : MonoBehaviour
         {
             rb.isKinematic = !enableRagdoll;
         }
+    }
 
+    // Coroutine to destroy the zombie after a delay
+    IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 }
