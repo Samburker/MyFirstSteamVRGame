@@ -2583,6 +2583,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f6e7443b3ec06b84499d7e0e628b9066, type: 3}
   - {fileID: 8300000, guid: 372e4e89446f1cd429c7d7a114d89677, type: 3}
   - {fileID: 8300000, guid: 7aabc091a09145d4ba871b7cf43eb511, type: 3}
+  walkSounds:
+  - {fileID: 8300000, guid: 286d250d0a16aa5408ff632905e28a9b, type: 3}
   healthLossSound: {fileID: 8300000, guid: baf9016ecc06e1c4d9d29c7a52ae0e36, type: 3}
   attackSounds:
   - {fileID: 8300000, guid: cfa5be98522e76848a3bb6d5b1c7d614, type: 3}

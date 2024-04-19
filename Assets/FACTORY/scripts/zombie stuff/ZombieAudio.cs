@@ -3,6 +3,7 @@ using UnityEngine;
 public class ZombieAudio : MonoBehaviour
 {
     public AudioClip[] growlSounds; // Array of growl sounds for the zombie
+    public AudioClip[] walkSounds;
     public AudioClip healthLossSound; // Sound to play when the zombie loses health
     public AudioClip[] attackSounds;
 
@@ -29,6 +30,7 @@ public class ZombieAudio : MonoBehaviour
         {
             // Play a random growl sound
             PlayGrowlSound();
+            PlayWalkSound();
 
             // Update the time for the next growl sound
             nextGrowlTime = Time.time + Random.Range(minGrowlInterval, maxGrowlInterval);
@@ -45,6 +47,19 @@ public class ZombieAudio : MonoBehaviour
 
             // Play the growl sound through the AudioSource
             audioSource.clip = randomGrowl;
+            audioSource.Play();
+        }
+    }
+
+    private void PlayWalkSound()
+    {
+        if (growlSounds.Length > 0 && audioSource != null)
+        {
+            // Choose a random growl sound from the array
+            AudioClip randomWalk = walkSounds[Random.Range(0, walkSounds.Length)];
+
+            // Play the growl sound through the AudioSource
+            audioSource.clip = randomWalk;
             audioSource.Play();
         }
     }
