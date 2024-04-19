@@ -13,13 +13,13 @@ public class HangarDoor : MonoBehaviour
     private Vector3 targetPosition;
     public bool isOpen = false;
     private bool hasPlayedOpenSound = false; // Flag to track if the open sound has been played
-    private AudioManager audioManager; // Reference to AudioManager script
+    private AudioSource audiosource;
 
     void Start()
     {
         startPosition = transform.position;
         targetPosition = new Vector3(startPosition.x, startPosition.y + targetHeight, startPosition.z); // Update target position to be relative to current position
-        audioManager = FindObjectOfType<AudioManager>(); // Find AudioManager in the scene
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Reference this from another script to open the door
@@ -40,9 +40,9 @@ public class HangarDoor : MonoBehaviour
     {
         if (isOpen)
         {
-            if (closeSound != null && audioManager != null)
+            if (closeSound != null)
             {
-                audioManager.PlaySoundEffect(closeSound); // Play closing sound effect
+                audiosource.PlayOneShot(closeSound);
             }
 
             StartCoroutine(MoveDoor(startPosition, moveDuration));
@@ -69,9 +69,9 @@ public class HangarDoor : MonoBehaviour
             elapsedTime += Time.deltaTime;
 
             // Play open sound when the door starts opening
-            if (!hasPlayedOpenSound && openSound != null && audioManager != null)
+            if (!hasPlayedOpenSound && openSound != null)
             {
-                audioManager.PlaySoundEffect(openSound);
+                audiosource.PlayOneShot(openSound);
                 hasPlayedOpenSound = true;
             }
 
