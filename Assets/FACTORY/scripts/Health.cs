@@ -4,6 +4,10 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 3; // Maximum health points
     public int currentHealth; // Current health points
+    public GameObject damageParticles; // Reference to the damage particles GameObject
+    public float damageParticleDuration = 1f; // Duration for which damage particles are active
+    public AudioClip[] damageSounds; // Array of damage sound effects
+    public AudioSource audioSource; // Reference to the player's AudioSource
 
     // Initialize health points
     private void Start()
@@ -27,6 +31,34 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            // Play random damage sound effect
+            if (damageSounds.Length > 0 && audioSource != null)
+            {
+                AudioClip randomSound = damageSounds[Random.Range(0, damageSounds.Length)];
+                audioSource.PlayOneShot(randomSound);
+            }
+
+            // Activate damage particles
+            if (damageParticles != null)
+            {
+                ActivateDamageParticles();
+            }
+        }
+    }
+
+    // Method to activate damage particles for a short duration
+    private void ActivateDamageParticles()
+    {
+        damageParticles.SetActive(true);
+        Invoke("DeactivateDamageParticles", damageParticleDuration);
+    }
+
+    // Method to deactivate damage particles
+    private void DeactivateDamageParticles()
+    {
+        damageParticles.SetActive(false);
     }
 
     // Method to increase health points (optional)
@@ -46,5 +78,4 @@ public class Health : MonoBehaviour
         Debug.Log("Player has died!");
         // Example: GameManager.Instance.GameOver();
     }
-
 }
