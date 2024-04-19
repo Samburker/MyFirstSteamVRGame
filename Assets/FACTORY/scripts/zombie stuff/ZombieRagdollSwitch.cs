@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class ZombieRagdollSwitch : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class ZombieRagdollSwitch : MonoBehaviour
     public Collider mainCollider;
     public Rigidbody mainRigidbody;
     public NavMeshAgent zombieNavMeshAgent;
+
+    public float sinkDuration = 2f; // Duration for sinking into the ground
+    public float sinkSpeed = 1f; // Speed of sinking into the ground
+    public float disableColliderDelay = 3f; // Delay before disabling colliders and rigidbodies
+    public float destroyDelay;
 
     public int health = 3; // Health of the zombie
 
@@ -29,17 +35,17 @@ public class ZombieRagdollSwitch : MonoBehaviour
 
     public void TakeDamage()
     {
-        
-             // If hit by a weapon, decrease health
-            health--;
+
+        // If hit by a weapon, decrease health
+        health--;
         Debug.Log("Zombie health lost");
 
-            if (health <= 0)
-            {
+        if (health <= 0)
+        {
             // If health reaches zero or below, turn on ragdoll
             ZombieDie();
-            }
-      
+        }
+
     }
 
     public void RagdollOn()
@@ -99,6 +105,45 @@ public class ZombieRagdollSwitch : MonoBehaviour
     {
         RagdollOn();
         zombieNavMeshAgent.enabled = false;
+        StartCoroutine(SinkIntoGroundAndDestroy());
+
     }
 
+
+    IEnumerator SinkIntoGroundAndDestroy()
+    {
+        // Deactivate colliders and rigidbodies after a delay
+        yield return new WaitForSeconds(disableColliderDelay);
+        DeactivateCollidersAndRigidbodies();
+
+        // Start sinking into the ground
+        float initialY = transform.position.y; // Initial Y position
+        float timer = 0f;
+
+        // Sinking into the ground
+        while (timer < sinkDuration)
+        {
+            float sinkAmount = sinkSpeed * Time.deltaTime;
+            transform.position -= Vector3.up * sinkAmount;
+            yield return null;
+            timer += Time.deltaTime;
+        }
+
+        // Destroy the zombie after sinking into the ground
+        yield return new WaitForSeconds(destroyDelay);
+        Destroy(gameObject);
+    }
+
+    void DeactivateCollidersAndRigidbodies()
+    {
+        // Disable all colliders and rigidbodies
+        foreach (Collider col in GetComponentsInChildren<Collider>())
+        {
+            col.enabled = false;
+        }
+        foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
+        {
+            rb.isKinematic = true;
+        }
+    }
 }

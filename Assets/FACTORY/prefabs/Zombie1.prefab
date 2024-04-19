@@ -2601,7 +2601,11 @@ MonoBehaviour:
   mainCollider: {fileID: 1523753341975817993}
   mainRigidbody: {fileID: 2451270487637830405}
   zombieNavMeshAgent: {fileID: 7652916683360584985}
-  health: 3
+  sinkDuration: 4
+  sinkSpeed: 0.3
+  disableColliderDelay: 7
+  destroyDelay: 1
+  health: 1
 --- !u!82 &-1563693434403720264
 AudioSource:
   m_ObjectHideFlags: 0
