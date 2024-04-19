@@ -2605,7 +2605,7 @@ MonoBehaviour:
   sinkSpeed: 0.3
   disableColliderDelay: 7
   destroyDelay: 1
-  health: 1
+  health: 6
 --- !u!82 &-1563693434403720264
 AudioSource:
   m_ObjectHideFlags: 0

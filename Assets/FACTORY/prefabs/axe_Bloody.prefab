@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e1c8ac08b0f7b47849b24b418e9f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minImpactVelocity: 30
+  minImpactVelocity: 200
   damage: 1
   hitSounds:
   - {fileID: 8300000, guid: d34c049f57daab642848ecc457c7ea97, type: 3}

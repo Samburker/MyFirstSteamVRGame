@@ -3,7 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int maxHealth = 3; // Maximum health points
-    private int currentHealth; // Current health points
+    public int currentHealth; // Current health points
 
     // Initialize health points
     private void Start()
@@ -46,4 +46,5 @@ public class Health : MonoBehaviour
         Debug.Log("Player has died!");
         // Example: GameManager.Instance.GameOver();
     }
+
 }

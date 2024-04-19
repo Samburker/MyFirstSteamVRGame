@@ -7,7 +7,6 @@ public class Axe : MonoBehaviour
     public int damage = 1; // Damage inflicted on the zombie per hit
     public AudioClip[] hitSounds; // Array of hit sounds for the axe
     public string zombieTag = "Zombie"; // Tag of the gameobject the axe can hit
-    public float delay;
 
     private void OnCollisionEnter(Collision collision)
     {
