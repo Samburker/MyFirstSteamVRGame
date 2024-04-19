@@ -2466,6 +2466,7 @@ GameObject:
   - component: {fileID: 7652916683360584985}
   - component: {fileID: 956504877468583326}
   - component: {fileID: 4084781223472963624}
+  - component: {fileID: 4873817077948175580}
   - component: {fileID: -1563693434403720264}
   - component: {fileID: 2451270487637830405}
   - component: {fileID: 1523753341975817993}
@@ -2583,6 +2584,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 372e4e89446f1cd429c7d7a114d89677, type: 3}
   - {fileID: 8300000, guid: 7aabc091a09145d4ba871b7cf43eb511, type: 3}
   healthLossSound: {fileID: 8300000, guid: baf9016ecc06e1c4d9d29c7a52ae0e36, type: 3}
+  attackSounds:
+  - {fileID: 8300000, guid: cfa5be98522e76848a3bb6d5b1c7d614, type: 3}
+  - {fileID: 8300000, guid: 69ce5bf3a13c0b44abde334cac5d64d2, type: 3}
+  - {fileID: 8300000, guid: df17e31cdfe99324e9d484a26aa82e2e, type: 3}
   minGrowlInterval: 5
   maxGrowlInterval: 10
 --- !u!114 &4084781223472963624
@@ -2606,6 +2611,22 @@ MonoBehaviour:
   disableColliderDelay: 7
   destroyDelay: 1
   health: 6
+--- !u!114 &4873817077948175580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493914613880827488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073f88e66c8220e41bfbea2f67145519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 4
+  attackCooldown: 2
+  attackDamage: 1
+  animator: {fileID: 7389507112651452681}
 --- !u!82 &-1563693434403720264
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2625,7 +2646,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 3.11
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 4.2
   Pan2D: 0

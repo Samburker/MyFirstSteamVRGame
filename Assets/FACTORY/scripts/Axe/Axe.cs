@@ -24,6 +24,8 @@ public class Axe : MonoBehaviour
                 if (zombie != null)
                 {
                     zombie.TakeDamage();
+                    ZombieAudio zombieAudio = GetComponent<ZombieAudio>();
+                    zombieAudio.PlayHealthLossSound();
                 }
 
                 // Play hit sound

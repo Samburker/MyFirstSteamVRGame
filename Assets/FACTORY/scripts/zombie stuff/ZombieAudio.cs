@@ -4,6 +4,7 @@ public class ZombieAudio : MonoBehaviour
 {
     public AudioClip[] growlSounds; // Array of growl sounds for the zombie
     public AudioClip healthLossSound; // Sound to play when the zombie loses health
+    public AudioClip[] attackSounds;
 
     public float minGrowlInterval = 5f; // Minimum interval between growl sounds
     public float maxGrowlInterval = 10f; // Maximum interval between growl sounds
@@ -57,5 +58,15 @@ public class ZombieAudio : MonoBehaviour
             audioSource.clip = healthLossSound;
             audioSource.Play();
         }
+    }
+
+    public void PlayZombieHitSound()
+    {
+        // Choose a random attack sound from the array
+        AudioClip attackSound = attackSounds[Random.Range(0, attackSounds.Length)];
+
+        // Play the attack sound through the AudioSource
+        audioSource.clip = attackSound;
+        audioSource.Play();
     }
 }

@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
-      
+        Debug.Log(currentHealth);
     }
 
 
