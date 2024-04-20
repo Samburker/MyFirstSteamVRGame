@@ -44,10 +44,10 @@ public class ZombieAttack : MonoBehaviour
             zombieAudio.PlayZombieHitSound();
         }
 
-        // Inflict damage to the player's health
+        // Inflict damage to the player's health.
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(Mathf.FloorToInt(attackDamage));
+            playerHealth.TakeZombieHitDamage(Mathf.FloorToInt(attackDamage));
         }
 
         // Start attack cooldown
