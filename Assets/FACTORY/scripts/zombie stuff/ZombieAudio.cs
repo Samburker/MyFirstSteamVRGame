@@ -27,7 +27,7 @@ public class ZombieAudio : MonoBehaviour
         nextGrowlTime = Time.time + Random.Range(minGrowlInterval, maxGrowlInterval);
 
         // Start playing walk sound if the zombie is initially walking
-        if (animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
+        if (animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
         {
             isWalking = true;
             PlayWalkSound();
@@ -37,7 +37,7 @@ public class ZombieAudio : MonoBehaviour
     void Update()
     {
         // Check if the zombie is currently walking
-        if (animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
+        if (animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
         {
             // If not already playing the walk sound, start playing it
             if (!isPlayingWalkSound)

@@ -2549,7 +2549,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.4
-  m_Speed: 0.5
+  m_Speed: 0.7
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 400
@@ -2593,7 +2593,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df17e31cdfe99324e9d484a26aa82e2e, type: 3}
   minGrowlInterval: 5
   maxGrowlInterval: 10
-  footstepDelay: 3
+  footstepDelay: 4
 --- !u!114 &4084781223472963624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2650,7 +2650,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 1
+  MinDistance: 3.9
   MaxDistance: 8.16
   Pan2D: 0
   rolloffMode: 0
@@ -2686,7 +2686,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.511
+      value: 0.523
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2701,7 +2701,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.119444445
+      value: 0.1388889
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2716,7 +2716,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
