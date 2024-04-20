@@ -276,7 +276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 195.9}
+  m_AnchoredPosition: {x: 0, y: 159}
   m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77019440
@@ -395,7 +395,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetHeight: 5
   moveDuration: 5
+  closeDelay: 5
+  leaveDoorOpen: 0
   openSound: {fileID: 8300000, guid: ebc6515841150b44b96210aef4822d5f, type: 3}
+  closeSound: {fileID: 0}
+  isOpen: 0
 --- !u!65 &104679800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6187,6 +6191,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  currentHealth: 0
+  damageParticles: {fileID: 0}
+  bloodParticles: {fileID: 0}
+  damageParticleDuration: 1
+  damageSounds: []
+  zombiedamageSounds: []
+  audioSource: {fileID: 0}
 --- !u!4 &1583147314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3048312968093837557, guid: 0fe5cfae9d6c29c47ac3b81e81e3bdac, type: 3}
