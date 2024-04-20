@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
             // Play random damage sound effect
             if (damageSounds.Length > 0 && audioSource != null)
             {
-                AudioClip randomSound = zombiedamageSounds[Random.Range(0, damageSounds.Length)];
+                AudioClip randomSound = zombiedamageSounds[Random.Range(0, zombiedamageSounds.Length)];
                 audioSource.PlayOneShot(randomSound);
             }
 

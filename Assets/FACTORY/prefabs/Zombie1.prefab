@@ -2586,7 +2586,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 933a3b3b3a67e3447b0eb2ae46637aed, type: 3}
   - {fileID: 8300000, guid: 469dbe71606603c41b078af4daf08be9, type: 3}
   - {fileID: 8300000, guid: d98b3c7e32ef7154fb0767f0d7c19ebf, type: 3}
-  healthLossSound: {fileID: 8300000, guid: baf9016ecc06e1c4d9d29c7a52ae0e36, type: 3}
+  healthLossSound:
+  - {fileID: 8300000, guid: baf9016ecc06e1c4d9d29c7a52ae0e36, type: 3}
+  - {fileID: 8300000, guid: cfa5be98522e76848a3bb6d5b1c7d614, type: 3}
+  - {fileID: 8300000, guid: 69ce5bf3a13c0b44abde334cac5d64d2, type: 3}
   attackSounds:
   - {fileID: 8300000, guid: cfa5be98522e76848a3bb6d5b1c7d614, type: 3}
   - {fileID: 8300000, guid: 69ce5bf3a13c0b44abde334cac5d64d2, type: 3}
@@ -2613,7 +2616,7 @@ MonoBehaviour:
   sinkSpeed: 0.3
   disableColliderDelay: 7
   destroyDelay: 1
-  health: 1
+  health: 3
 --- !u!114 &4873817077948175580
 MonoBehaviour:
   m_ObjectHideFlags: 0
