@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public GameObject bloodParticles;
     public float damageParticleDuration = 1f; // Duration for which damage particles are active
     public AudioClip[] damageSounds; // Array of damage sound effects
+    public AudioClip[] zombiedamageSounds; // Array of damage sound effects
+
     public AudioSource audioSource; // Reference to the player's AudioSource
 
     // Initialize health points
@@ -32,7 +34,7 @@ public class Health : MonoBehaviour
             // Play random damage sound effect
             if (damageSounds.Length > 0 && audioSource != null)
             {
-                AudioClip randomSound = damageSounds[Random.Range(0, damageSounds.Length)];
+                AudioClip randomSound = zombiedamageSounds[Random.Range(0, damageSounds.Length)];
                 audioSource.PlayOneShot(randomSound);
             }
 
