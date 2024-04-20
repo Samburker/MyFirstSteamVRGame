@@ -2584,7 +2584,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 372e4e89446f1cd429c7d7a114d89677, type: 3}
   - {fileID: 8300000, guid: 7aabc091a09145d4ba871b7cf43eb511, type: 3}
   walkSounds:
-  - {fileID: 8300000, guid: 286d250d0a16aa5408ff632905e28a9b, type: 3}
+  - {fileID: 8300000, guid: 933a3b3b3a67e3447b0eb2ae46637aed, type: 3}
+  - {fileID: 8300000, guid: 469dbe71606603c41b078af4daf08be9, type: 3}
+  - {fileID: 8300000, guid: d98b3c7e32ef7154fb0767f0d7c19ebf, type: 3}
   healthLossSound: {fileID: 8300000, guid: baf9016ecc06e1c4d9d29c7a52ae0e36, type: 3}
   attackSounds:
   - {fileID: 8300000, guid: cfa5be98522e76848a3bb6d5b1c7d614, type: 3}
@@ -2592,6 +2594,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df17e31cdfe99324e9d484a26aa82e2e, type: 3}
   minGrowlInterval: 5
   maxGrowlInterval: 10
+  footstepDelay: 3
 --- !u!114 &4084781223472963624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2685,7 +2688,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.511
       inSlope: 0
       outSlope: 0
       tangentMode: 0

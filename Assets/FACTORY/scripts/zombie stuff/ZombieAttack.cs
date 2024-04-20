@@ -26,6 +26,11 @@ public class ZombieAttack : MonoBehaviour
         {
             Attack();
         }
+        // If the player moves out of attack range, switch to walk animation
+        else if (distanceToPlayer > attackRange)
+        {
+            SwitchToWalkAnimation();
+        }
     }
 
     // Method to handle the zombie's attack
@@ -37,7 +42,6 @@ public class ZombieAttack : MonoBehaviour
             animator.SetTrigger("Attack");
             ZombieAudio zombieAudio = GetComponent<ZombieAudio>();
             zombieAudio.PlayZombieHitSound();
-
         }
 
         // Inflict damage to the player's health
@@ -55,5 +59,15 @@ public class ZombieAttack : MonoBehaviour
     void ResetAttackCooldown()
     {
         canAttack = true;
+    }
+
+    // Method to switch back to the walk animation
+    void SwitchToWalkAnimation()
+    {
+        if (animator != null)
+        {
+            animator.ResetTrigger("Attack");
+            animator.SetTrigger("Walk");
+        }
     }
 }
