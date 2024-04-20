@@ -300,11 +300,15 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   damageParticles: {fileID: 2672496267436000583}
+  bloodParticles: {fileID: 639932083965717365}
   damageParticleDuration: 1
   damageSounds:
   - {fileID: 8300000, guid: 743fcdfa00dedbd40ad8e0c63f9bc03c, type: 3}
   - {fileID: 8300000, guid: d2f2ae17fcc9346478b495d343a0fbd9, type: 3}
   - {fileID: 8300000, guid: c6d8079c93602d947991efd3fdd9833f, type: 3}
+  zombiedamageSounds:
+  - {fileID: 8300000, guid: 53a64f771e627884da9a9cea118f7644, type: 3}
+  - {fileID: 8300000, guid: fdd9161c89502f149a08158c75e11d8b, type: 3}
   audioSource: {fileID: 5231086993655814724}
 --- !u!82 &5231086993655814724
 AudioSource:
@@ -653,6 +657,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2666744370303525811}
+  - {fileID: 643107288717101949}
   m_Father: {fileID: 471722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &13533284
@@ -2908,6 +2913,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 476540}
   m_LocalEulerAnglesHint: {x: 135, y: -170, z: -90}
+--- !u!1001 &1503272218024858442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 453574}
+    m_Modifications:
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035007770791721023, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_Name
+      value: BloodSprayFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035007770791721023, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+--- !u!1 &639932083965717365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2035007770791721023, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+  m_PrefabInstance: {fileID: 1503272218024858442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &643107288717101949 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2031251756513974327, guid: 7c2904bbd8c7fdf498605a131aecd297, type: 3}
+  m_PrefabInstance: {fileID: 1503272218024858442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2671386875960409633
 PrefabInstance:
   m_ObjectHideFlags: 0

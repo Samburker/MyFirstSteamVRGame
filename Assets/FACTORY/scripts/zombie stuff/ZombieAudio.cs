@@ -4,7 +4,7 @@ public class ZombieAudio : MonoBehaviour
 {
     public AudioClip[] growlSounds; // Array of growl sounds for the zombie
     public AudioClip[] walkSounds; // Array of walk sounds
-    public AudioClip healthLossSound; // Sound to play when the zombie loses health
+    public AudioClip[] healthLossSound; // Sound to play when the zombie loses health
     public AudioClip[] attackSounds; // Array of attack sounds
 
     public float minGrowlInterval = 5f; // Minimum interval between growl sounds
@@ -124,7 +124,7 @@ public class ZombieAudio : MonoBehaviour
     // Method to play a footstep sound
     private void PlayFootstepSound()
     {
-        if (walkSounds.Length > 0 && audioSource != null)
+        if (walkSounds.Length > 0 && audioSource != null )
         {
             // Choose a random footstep sound from the array
             AudioClip randomFootstep = walkSounds[Random.Range(0, walkSounds.Length)];
@@ -139,9 +139,11 @@ public class ZombieAudio : MonoBehaviour
     {
         if (healthLossSound != null && audioSource != null)
         {
-            // Play the health loss sound through the AudioSource
-            audioSource.clip = healthLossSound;
-            audioSource.Play();
+            // Choose a random footstep sound from the array
+            AudioClip randomHealthLossSound = healthLossSound[Random.Range(0, walkSounds.Length)];
+
+            // Play the footstep sound through the AudioSource
+            audioSource.PlayOneShot(randomHealthLossSound);
         }
     }
 
