@@ -37,7 +37,7 @@ public class Clock : MonoBehaviour
         {
             timerText.text = endTime;
             // Load the transition scene when time is up
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("TransitionScene");
         }
     }
 }
