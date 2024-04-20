@@ -8,7 +8,7 @@ public class ZombieRagdollSwitch : MonoBehaviour
     private Collider[] ragdollColliders;
     public Animator animator;
     public Collider mainCollider;
-    public Rigidbody mainRigidbody;
+    //public Rigidbody mainRigidbody; REMOVE THIS
     public NavMeshAgent zombieNavMeshAgent;
 
     public float sinkDuration = 2f; // Duration for sinking into the ground
@@ -27,7 +27,7 @@ public class ZombieRagdollSwitch : MonoBehaviour
         // Get the animator, main collider, and main rigidbody
         animator = GetComponent<Animator>();
         mainCollider = GetComponent<Collider>();
-        mainRigidbody = GetComponent<Rigidbody>();
+        //mainRigidbody = GetComponent<Rigidbody>();REMOVE THIS
 
         // Disable the ragdoll components at start
         RagdollOff();
@@ -56,15 +56,12 @@ public class ZombieRagdollSwitch : MonoBehaviour
         // Disable main collider
         mainCollider.enabled = false;
 
-        mainRigidbody.isKinematic = true;
+        //mainRigidbody.isKinematic = true; REMOVE THIS
 
         // Enable all ragdoll colliders and rigidbodies
         foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
         {
-            if (rb != mainRigidbody)
-            {
                 rb.isKinematic = false;
-            }
         }
         foreach (Collider col in GetComponentsInChildren<Collider>())
         {
@@ -83,15 +80,13 @@ public class ZombieRagdollSwitch : MonoBehaviour
         // Enable main collider
         mainCollider.enabled = true;
 
-        mainRigidbody.isKinematic = false;
+        //mainRigidbody.isKinematic = false; REMOVE THIS
 
         // Disable all ragdoll colliders and rigidbodies
         foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
         {
-            if (rb != mainRigidbody)
-            {
+           
                 rb.isKinematic = true;
-            }
         }
         foreach (Collider col in GetComponentsInChildren<Collider>())
         {

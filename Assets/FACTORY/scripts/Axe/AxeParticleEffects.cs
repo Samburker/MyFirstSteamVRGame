@@ -18,20 +18,17 @@ public class AxeParticleEffects : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void EnableParticlesWhenHit()
     {
-        // Check if the collision belongs to an object with the tag "Zombie"
-        if (collision.gameObject.CompareTag("Zombie"))
-        {
+        
             // Enable all particle systems
             foreach (ParticleSystem ps in particleSystems)
             {
                 ps.Play();
             }
-
             // Call the method to disable particle systems after a delay
             Invoke("DisableParticleSystems", particleDuration);
-        }
+  
     }
 
     // Method to disable particle systems

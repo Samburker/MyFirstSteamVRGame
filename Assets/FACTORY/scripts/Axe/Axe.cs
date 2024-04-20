@@ -7,6 +7,13 @@ public class Axe : MonoBehaviour
     public int damage = 1; // Damage inflicted on the zombie per hit
     public AudioClip[] hitSounds; // Array of hit sounds for the axe
     public string zombieTag = "Zombie"; // Tag of the gameobject the axe can hit
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,17 +26,20 @@ public class Axe : MonoBehaviour
             // Check if impact velocity is sufficient to register a hit
             if (impactVelocity >= minImpactVelocity)
             {
+                // enable particles when zombie is hit
+                AxeParticleEffects axeParticles = gameObject.GetComponent<AxeParticleEffects>();
+                axeParticles.EnableParticlesWhenHit();
                 // Reduce zombie health
                 ZombieRagdollSwitch zombie = collision.gameObject.GetComponent<ZombieRagdollSwitch>();
                 if (zombie != null)
                 {
                     zombie.TakeDamage();
-                    ZombieAudio zombieAudio = GetComponent<ZombieAudio>();
+                    ZombieAudio zombieAudio = collision.gameObject.GetComponent<ZombieAudio>();
+                    PlayRandomHitSound();
                     zombieAudio.PlayHealthLossSound();
                 }
 
-                // Play hit sound
-                PlayRandomHitSound();
+            
             }
         }
     }
@@ -40,7 +50,7 @@ public class Axe : MonoBehaviour
         {
             // Choose a random hit sound from the array
             AudioClip randomSound = hitSounds[Random.Range(0, hitSounds.Length)];
-            AudioSource.PlayClipAtPoint(randomSound, transform.position);
+            audioSource.PlayOneShot(randomSound);
         }
     }
   
