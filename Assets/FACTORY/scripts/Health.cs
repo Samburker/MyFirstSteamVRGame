@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public GameObject bloodParticles;
     public float damageParticleDuration = 1f; // Duration for which damage particles are active
     public AudioClip[] damageSounds; // Array of damage sound effects
+    public AudioClip[] errorSounds;
     public AudioClip[] zombiedamageSounds; // Array of damage sound effects
 
     public AudioSource audioSource; // Reference to the player's AudioSource
@@ -61,11 +62,13 @@ public class Health : MonoBehaviour
         }
         else
         {
-            // Play random damage sound effect
+            // Play random damage sound & Serenity voiceline effect
             if (damageSounds.Length > 0 && audioSource != null)
             {
                 AudioClip randomSound = damageSounds[Random.Range(0, damageSounds.Length)];
                 audioSource.PlayOneShot(randomSound);
+                Invoke("PlayVoiceLine", 1f); //play Serenity voiceline after a second has passed from taking error damage 
+
             }
 
             // Activate damage particles
@@ -81,6 +84,12 @@ public class Health : MonoBehaviour
     {
         damageParticles.SetActive(true);
         Invoke("DeactivateDamageParticles", damageParticleDuration);
+    }
+    void PlayVoiceLine()
+    {
+        // Play a random voice line
+        AudioClip randomVoiceLine = errorSounds[Random.Range(0, errorSounds.Length)];
+        audioSource.PlayOneShot(randomVoiceLine);
     }
 
     private void ActivateBloodParticles()

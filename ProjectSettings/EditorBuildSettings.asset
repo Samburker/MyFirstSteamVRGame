@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/FACTORY/scenes/Main Menu.unity
     guid: b93c155ae80d8894d8108f338f52e906
+  - enabled: 1
+    path: Assets/FACTORY/scenes/START GAME.unity
+    guid: 6b6ca8499e86920478b6900931e85752
   - enabled: 1
     path: Assets/FACTORY/scenes/TransitionScene.unity
     guid: 2c7d88ee0b9e6ff41be328334076010d
