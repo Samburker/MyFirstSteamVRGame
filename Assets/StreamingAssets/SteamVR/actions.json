@@ -81,14 +81,6 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
-    },
-    {
-      "name": "/actions/RadioControls/in/ToggleRadio",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/RadioControls/in/AdjustVolume",
-      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -106,10 +98,6 @@
     },
     {
       "name": "/actions/mixedreality",
-      "usage": "single"
-    },
-    {
-      "name": "/actions/RadioControls",
       "usage": "single"
     }
   ],

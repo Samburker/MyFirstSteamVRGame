@@ -1,106 +1,66 @@
-using System.Collections;
 using UnityEngine;
 using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class RadioController : MonoBehaviour
 {
-    public SteamVR_Action_Boolean toggleRadioAction;
-    public SteamVR_Action_Boolean adjustVolumeAction;
-    public AudioSource radioAudioSource;
+    public CircularDrive powerButton;
+    public CircularDrive volumeKnob;
+    public AudioSource audioSource;
     public AudioClip[] songs;
-    private int currentSongIndex = 0;
-    private bool isRadioOn = false;
-    private float startAngle = 0f;
-    private float previousAngle = 0f;
-    private const float ANGLE_THRESHOLD = 5f;
-    private bool isRotating = false;
+    public float minAngle = 30f;
+    public float maxAngle = 330f;
+    private bool isOn = false;
 
-    void OnEnable()
+    private void Start()
     {
-        toggleRadioAction.AddOnStateDownListener(ToggleRadio, SteamVR_Input_Sources.Any);
-        adjustVolumeAction.AddOnStateDownListener(AdjustVolume, SteamVR_Input_Sources.Any);
-    }
-
-    void OnDisable()
-    {
-        toggleRadioAction.RemoveOnStateDownListener(ToggleRadio, SteamVR_Input_Sources.Any);
-        adjustVolumeAction.RemoveOnStateDownListener(AdjustVolume, SteamVR_Input_Sources.Any);
-    }
-
-    private void ToggleRadio(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
-    {
-        isRadioOn = !isRadioOn;
-
-        if (isRadioOn)
-        {
-            radioAudioSource.clip = songs[currentSongIndex];
-            radioAudioSource.Play();
-        }
-        else
-        {
-            radioAudioSource.Stop();
-        }
-    }
-
-    private void AdjustVolume(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
-    {
-        if (isRadioOn)
-        {
-            radioAudioSource.volume = Mathf.Clamp01(radioAudioSource.volume + 0.1f);
-        }
+        // Turn off the radio initially
+        audioSource.Stop();
     }
 
     private void Update()
     {
-        if (isRadioOn && !isRotating)
+        float angle = powerButton.outAngle;
+
+        // Check if the angle is within the limits
+        if (angle > minAngle && angle < maxAngle)
         {
-            float currentAngle = transform.localEulerAngles.y;
-
-            if (currentAngle - previousAngle < -180)
+            if (!isOn)
             {
-                currentAngle += 360;
+                TurnOnRadio();
             }
-            else if (currentAngle - previousAngle > 180)
+        }
+        else
+        {
+            if (isOn)
             {
-                currentAngle -= 360;
+                TurnOffRadio();
             }
+        }
 
-            float deltaAngle = currentAngle - previousAngle;
-
-            if (Mathf.Abs(deltaAngle) > ANGLE_THRESHOLD)
-            {
-                isRotating = true;
-
-                if (deltaAngle < 0)
-                {
-                    currentSongIndex--;
-                    if (currentSongIndex < 0)
-                    {
-                        currentSongIndex = songs.Length - 1;
-                    }
-                }
-                else
-                {
-                    currentSongIndex++;
-                    if (currentSongIndex >= songs.Length)
-                    {
-                        currentSongIndex = 0;
-                    }
-                }
-
-                radioAudioSource.clip = songs[currentSongIndex];
-                radioAudioSource.Play();
-
-                StartCoroutine(ResetRotation());
-            }
-
-            previousAngle = currentAngle;
+        if (isOn)
+        {
+            AdjustVolume(volumeKnob.outAngle);
         }
     }
 
-    private IEnumerator ResetRotation()
+    private void AdjustVolume(float angle)
     {
-        yield return new WaitForSeconds(0.5f);
-        isRotating = false;
+        float volume = Mathf.InverseLerp(minAngle, maxAngle, angle);
+        audioSource.volume = volume;
+    }
+
+    private void TurnOnRadio()
+    {
+        isOn = true;
+        int randomIndex = Random.Range(0, songs.Length);
+        audioSource.clip = songs[randomIndex];
+        audioSource.Play();
+    }
+
+    private void TurnOffRadio()
+    {
+        isOn = false;
+        audioSource.Stop();
     }
 }

@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 11465950}
   - component: {fileID: 695671907252525707}
   - component: {fileID: 5231086993655814724}
+  - component: {fileID: 5461996840955121120}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -297,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d506c0fa6dd57094c98f622a8c2e13eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 100
   currentHealth: 0
   damageParticles: {fileID: 2672496267436000583}
   bloodParticles: {fileID: 639932083965717365}
@@ -310,6 +311,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 53a64f771e627884da9a9cea118f7644, type: 3}
   - {fileID: 8300000, guid: fdd9161c89502f149a08158c75e11d8b, type: 3}
   audioSource: {fileID: 5231086993655814724}
+  controllerVibration: {fileID: 0}
 --- !u!82 &5231086993655814724
 AudioSource:
   m_ObjectHideFlags: 0
@@ -406,6 +408,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5461996840955121120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eace06442bb91b94ca09580d5b1de408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1208,7 @@ MonoBehaviour:
   handCollider: {fileID: 0}
   clearanceCheckMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 247
   hand: {fileID: 0}
 --- !u!1 &160596
 GameObject:

@@ -12,7 +12,6 @@ public class Health : MonoBehaviour
 
     public AudioSource audioSource; // Reference to the player's AudioSource
 
-    public ControllerVibration controllerVibration; // reference for the controller vibration script
 
     // Initialize health points
     private void Start()
@@ -54,8 +53,6 @@ public class Health : MonoBehaviour
     {
         // Reduce health by the specified amount
         currentHealth -= damageAmount;
-        // Call the vibration method. Example: 0.1 second, 100Hz frequency, and 1.0 amplitude
-        controllerVibration.TriggerHapticPulse(0.2f, 150, 1);
 
         // Check if health has reached zero
         if (currentHealth <= 0)
