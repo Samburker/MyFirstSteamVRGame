@@ -11,6 +11,7 @@ public class RadioController : MonoBehaviour
     public float minAngle = 30f;
     public float maxAngle = 330f;
     private bool isOn = false;
+    private int currentSongIndex = 0;
 
     private void Start()
     {
@@ -53,9 +54,13 @@ public class RadioController : MonoBehaviour
     private void TurnOnRadio()
     {
         isOn = true;
-        int randomIndex = Random.Range(0, songs.Length);
-        audioSource.clip = songs[randomIndex];
+        if (currentSongIndex >= songs.Length)
+        {
+            currentSongIndex = 0;
+        }
+        audioSource.clip = songs[currentSongIndex];
         audioSource.Play();
+        currentSongIndex++;
     }
 
     private void TurnOffRadio()
