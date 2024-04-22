@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasObject: {fileID: 509119667}
-  appearanceDelay: 32
+  appearanceDelay: 35
 --- !u!1001 &510224749
 PrefabInstance:
   m_ObjectHideFlags: 0

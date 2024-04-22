@@ -4769,8 +4769,8 @@ MonoBehaviour:
     weight: 1
   - prefab: {fileID: 7286248343172426150, guid: a1184f7fcbd1cc1498a2cd49cdd596b3, type: 3}
     weight: 1
-  minSpawnInterval: 5
-  maxSpawnInterval: 10
+  minSpawnInterval: 2
+  maxSpawnInterval: 5
 --- !u!4 &1023724809
 Transform:
   m_ObjectHideFlags: 0
@@ -9668,6 +9668,30 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 695671907252525707, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: errorSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 695671907252525707, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: errorSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 77c665146525ca84c9d7738299204bd2, type: 3}
+    - target: {fileID: 695671907252525707, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: errorSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 19d0be8cded494644b08322fcc061443, type: 3}
+    - target: {fileID: 695671907252525707, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: errorSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c2eb2cad88b5f14bac2f5ebe63c011f, type: 3}
+    - target: {fileID: 695671907252525707, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: errorSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c829696f6f7c874eb336bcdc764eee3, type: 3}
+    - target: {fileID: 695671907252525707, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: errorSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: ed07cf874d356124a9c23b42ed5b44eb, type: 3}
     m_RemovedComponents:
     - {fileID: 5461996840955121120, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
     m_RemovedGameObjects: []
