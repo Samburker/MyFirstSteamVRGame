@@ -11,7 +11,9 @@ public class TrashBin : MonoBehaviour
         if (other.CompareTag("FalseItem"))
         {
             // Load the transition scene
-            SceneManager.LoadScene(transitionSceneName);
+            // Load next scene when toy thrown into the dumpster
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }
 }

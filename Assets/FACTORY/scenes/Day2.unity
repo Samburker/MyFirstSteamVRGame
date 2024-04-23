@@ -5701,8 +5701,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 115386, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
-  numMissilesToSpawn: 2
-  spawnDelay: 0.1
+  numMissilesToSpawn: 20
+  spawnDelay: 0.2
   startDelay: 2
   hangarDoorDelay: 5
 --- !u!4 &1133780442
@@ -9065,7 +9065,7 @@ MonoBehaviour:
   timerText: {fileID: 106198478}
   startTime: 08:00
   endTime: 18:00
-  dayLengthInSeconds: 10
+  dayLengthInSeconds: 180
 --- !u!1001 &1655649739
 PrefabInstance:
   m_ObjectHideFlags: 0
