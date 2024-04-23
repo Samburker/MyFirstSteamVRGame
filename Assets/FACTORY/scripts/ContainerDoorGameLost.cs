@@ -10,6 +10,7 @@ public class ContainerDoorGameLost : MonoBehaviour
     public AudioClip closingSound; // Sound to play when the door starts closing
     private AudioSource audioSource;
     private bool isOpen = false;
+    public AudioClip disciplineVoiceLine;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class ContainerDoorGameLost : MonoBehaviour
         gameEndCanvas.gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         StartCoroutine(CloseDoorDelayed());
+        audioSource.PlayOneShot(disciplineVoiceLine);
     }
 
     IEnumerator CloseDoorDelayed()
