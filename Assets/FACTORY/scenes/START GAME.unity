@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start the game by throwing the toy into the dumbster
+  m_text: Start the game by throwing the toy into the dumpster
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d5c76a026f83174fac55a7feeebc07f, type: 2}
   m_sharedMaterial: {fileID: -6767896282229051826, guid: 7d5c76a026f83174fac55a7feeebc07f, type: 2}
@@ -6249,7 +6249,11 @@ MonoBehaviour:
   m_text: 'Day 1 tasks:
 
 
-    - Discard wrong items from conveyor belt into the dumpster.'
+    - Discard wrong items from conveyor belt into the dumpster.
+
+
+    Shift
+    ends at 18:00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 270b8430a63d279479d2db2297cf8d9c, type: 2}
   m_sharedMaterial: {fileID: 5158952790262069126, guid: 270b8430a63d279479d2db2297cf8d9c, type: 2}
