@@ -4769,6 +4769,8 @@ MonoBehaviour:
     weight: 1
   - prefab: {fileID: 7286248343172426150, guid: a1184f7fcbd1cc1498a2cd49cdd596b3, type: 3}
     weight: 1
+  - prefab: {fileID: 7286248343172426150, guid: a1184f7fcbd1cc1498a2cd49cdd596b3, type: 3}
+    weight: 1
   minSpawnInterval: 2
   maxSpawnInterval: 5
 --- !u!4 &1023724809
