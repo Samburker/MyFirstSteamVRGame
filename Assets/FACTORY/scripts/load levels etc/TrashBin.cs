@@ -1,19 +1,24 @@
+using EasyTransition;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TrashBin : MonoBehaviour
+namespace EasyTransition
 {
-    public string transitionSceneName = "TransitionScene"; // Name of the transition scene
+    
 
-    private void OnTriggerEnter(Collider other)
+    public class TrashBin : MonoBehaviour
     {
-        // Check if the entering game object has the tag "FalseItem"
-        if (other.CompareTag("FalseItem"))
+        public TransitionSettings transition;
+        public string transitionSceneName = "TransitionScene"; // Name of the transition scene
+
+        private void OnTriggerEnter(Collider other)
         {
-            // Load the transition scene
-            // Load next scene when toy thrown into the dumpster
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentSceneIndex + 1);
+            // Check if the entering game object has the tag "FalseItem"
+            if (other.CompareTag("FalseItem"))
+            {
+                Scene currentScene = SceneManager.GetActiveScene();
+                TransitionManager.Instance().Transition(currentScene.buildIndex+1, transition, 2f);
+            }
         }
     }
 }

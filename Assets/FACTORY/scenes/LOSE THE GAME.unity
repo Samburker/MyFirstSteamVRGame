@@ -4491,6 +4491,51 @@ Transform:
   - {fileID: 1490547323}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1685918419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685918421}
+  - component: {fileID: 1685918420}
+  m_Layer: 0
+  m_Name: TransitionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1685918420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685918419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61430b0086307cc4da3ccc8d39ae88da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTemplate: {fileID: 5276914992623515724, guid: 616d511151a6c554caddf1c754e4f91d, type: 3}
+--- !u!4 &1685918421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685918419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.381, y: 2.132, z: -3.451}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1719265282
 GameObject:
   m_ObjectHideFlags: 0
@@ -4822,7 +4867,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000013718478842, guid: c2028b62d7877e04194d5001429cff6b, type: 3}
       propertyPath: m_Name
-      value: Cargo_container_v1_LD2open
+      value: CONTAINER JAIL
       objectReference: {fileID: 0}
     - target: {fileID: 4000011609285218, guid: c2028b62d7877e04194d5001429cff6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5085,6 +5130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b295803cd4c002249a6696a9e148fc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transition: {fileID: 0}
   transitionSceneName: TransitionScene
 --- !u!65 &1918158439
 BoxCollider:
@@ -5371,7 +5417,7 @@ GameObject:
   - component: {fileID: 2049311653}
   - component: {fileID: 2049311654}
   m_Layer: 0
-  m_Name: Cargo_container_v1_LD2doorL (1)
+  m_Name: Closing door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5480,6 +5526,7 @@ MonoBehaviour:
   gameEndCanvas: {fileID: 1563135923}
   closingSound: {fileID: 8300000, guid: 0ac962754bc2ebf4b93372217edf9535, type: 3}
   disciplineVoiceLine: {fileID: 8300000, guid: 2876c74bb689791478e8620a06267c2a, type: 3}
+  transition: {fileID: 11400000, guid: 06fa0ad2bc756f44ab258bc74947381d, type: 2}
 --- !u!82 &2049311654
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5581,6 +5628,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1949756485}
+  - {fileID: 1685918421}
   - {fileID: 1487909015}
   - {fileID: 1737136802}
   - {fileID: 1563135924}
