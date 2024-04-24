@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public static class PlayerStats
 {
-    public static int maxHealth = 100; // Maximum health points
+    public static int maxHealth = 10; // Maximum health points
     public static int currentHealth; // Current health points
 
     static PlayerStats()
@@ -47,6 +47,15 @@ public class Health : MonoBehaviour
 
         if (PlayerStats.currentHealth <= 0)
         {
+            if (damageSounds.Length > 0 && audioSource != null)
+            {
+                AudioClip randomSound = zombiedamageSounds[Random.Range(0, zombiedamageSounds.Length)];
+                audioSource.PlayOneShot(randomSound);
+            }
+            if (bloodParticles != null)
+            {
+                ActivateBloodParticles();
+            }
             Die();
         }
         else
