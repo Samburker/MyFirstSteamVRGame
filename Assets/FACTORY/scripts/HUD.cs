@@ -18,10 +18,8 @@ public class HUD : MonoBehaviour
     // Update health text with current health value
     void UpdateHealthText()
     {
-        if (healthText != null && playerHealth != null)
-        {
-            healthText.text = playerHealth.currentHealth.ToString();
-        }
+
+        healthText.text = PlayerStats.currentHealth.ToString();
     }
 
     void Update()

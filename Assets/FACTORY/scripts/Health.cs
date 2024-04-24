@@ -1,33 +1,51 @@
 using UnityEngine;
+using EasyTransition;
+using UnityEngine.SceneManagement;
+
+public static class PlayerStats
+{
+    public static int maxHealth = 100; // Maximum health points
+    public static int currentHealth; // Current health points
+
+    static PlayerStats()
+    {
+        // Initialize health points
+        if (SceneManager.GetActiveScene().name == "Day1")
+        {
+            currentHealth = maxHealth;
+        }
+    }
+}
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 3; // Maximum health points
-    public int currentHealth; // Current health points
     public GameObject damageParticles; // Reference to the damage particles GameObject
     public GameObject bloodParticles;
     public float damageParticleDuration = 1f; // Duration for which damage particles are active
     public AudioClip[] damageSounds; // Array of damage sound effects
     public AudioClip[] errorSounds;
     public AudioClip[] zombiedamageSounds; // Array of damage sound effects
-
     public AudioSource audioSource; // Reference to the player's AudioSource
-
+    public TransitionSettings transition;
 
     // Initialize health points
     private void Start()
     {
-        currentHealth = maxHealth;
+        if (SceneManager.GetActiveScene().name == "Day1")
+        {
+            PlayerStats.currentHealth = PlayerStats.maxHealth;
+        }
     }
+
     private void Update()
     {
     }
 
     public void TakeZombieHitDamage(int damageAmount)
     {
-        currentHealth -= damageAmount;
+        PlayerStats.currentHealth -= damageAmount;
 
-        if (currentHealth <= 0)
+        if (PlayerStats.currentHealth <= 0)
         {
             Die();
         }
@@ -48,16 +66,26 @@ public class Health : MonoBehaviour
         }
     }
 
-
     // Method to decrease health points
     public void TakeDamage(int damageAmount)
     {
         // Reduce health by the specified amount
-        currentHealth -= damageAmount;
+        PlayerStats.currentHealth -= damageAmount;
 
         // Check if health has reached zero
-        if (currentHealth <= 0)
+        if (PlayerStats.currentHealth <= 0)
         {
+            if (damageSounds.Length > 0 && audioSource != null)
+            {
+                AudioClip randomSound = damageSounds[Random.Range(0, damageSounds.Length)];
+                audioSource.PlayOneShot(randomSound);
+                Invoke("PlayVoiceLine", 1f); //play Serenity voiceline after a second has passed from taking error damage 
+
+            }
+            if (damageParticles != null)
+            {
+                ActivateDamageParticles();
+            }
             Die();
         }
         else
@@ -116,17 +144,15 @@ public class Health : MonoBehaviour
     public void Heal(int healAmount)
     {
         // Increase health by the specified amount
-        currentHealth += healAmount;
+        PlayerStats.currentHealth += healAmount;
 
         // Ensure health doesn't exceed maximum
-        currentHealth = Mathf.Min(currentHealth, maxHealth);
+        PlayerStats.currentHealth = Mathf.Min(PlayerStats.currentHealth, PlayerStats.maxHealth);
     }
 
     // Method called when health reaches zero
     private void Die()
     {
-        // Perform any actions for player death, such as game over, respawn, etc.
-        Debug.Log("Player has died!");
-        // Example: GameManager.Instance.GameOver();
+        TransitionManager.Instance().Transition(7, transition, 4f);
     }
 }

@@ -228,7 +228,6 @@ GameObject:
   - component: {fileID: 11465950}
   - component: {fileID: 695671907252525707}
   - component: {fileID: 5231086993655814724}
-  - component: {fileID: 5461996840955121120}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -298,8 +297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d506c0fa6dd57094c98f622a8c2e13eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
   damageParticles: {fileID: 2672496267436000583}
   bloodParticles: {fileID: 639932083965717365}
   damageParticleDuration: 1
@@ -307,11 +304,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 743fcdfa00dedbd40ad8e0c63f9bc03c, type: 3}
   - {fileID: 8300000, guid: d2f2ae17fcc9346478b495d343a0fbd9, type: 3}
   - {fileID: 8300000, guid: c6d8079c93602d947991efd3fdd9833f, type: 3}
+  errorSounds:
+  - {fileID: 8300000, guid: 77c665146525ca84c9d7738299204bd2, type: 3}
+  - {fileID: 8300000, guid: 19d0be8cded494644b08322fcc061443, type: 3}
+  - {fileID: 8300000, guid: 4c2eb2cad88b5f14bac2f5ebe63c011f, type: 3}
+  - {fileID: 8300000, guid: 5c829696f6f7c874eb336bcdc764eee3, type: 3}
+  - {fileID: 8300000, guid: ed07cf874d356124a9c23b42ed5b44eb, type: 3}
   zombiedamageSounds:
   - {fileID: 8300000, guid: 53a64f771e627884da9a9cea118f7644, type: 3}
   - {fileID: 8300000, guid: fdd9161c89502f149a08158c75e11d8b, type: 3}
   audioSource: {fileID: 5231086993655814724}
-  controllerVibration: {fileID: 0}
+  transition: {fileID: 11400000, guid: 06fa0ad2bc756f44ab258bc74947381d, type: 2}
 --- !u!82 &5231086993655814724
 AudioSource:
   m_ObjectHideFlags: 0
@@ -408,21 +411,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5461996840955121120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eace06442bb91b94ca09580d5b1de408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hapticAction:
-    actionPath: /actions/default/out/Haptic
-    needsReinit: 0
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0

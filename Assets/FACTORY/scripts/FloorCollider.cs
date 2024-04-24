@@ -3,7 +3,6 @@ using UnityEngine;
 public class FloorCollider : MonoBehaviour
 {
     private Health playerHealth; // Reference to the Health script attached to the player
-    public AudioClip damageSound; // Sound to play when taking damage
 
     private void Start()
     {
@@ -20,11 +19,6 @@ public class FloorCollider : MonoBehaviour
             playerHealth.TakeDamage(1);
             Destroy(other.gameObject);
 
-            // Play damage sound through AudioManager if assigned
-            if (damageSound != null)
-            {
-                AudioManager.Instance.PlaySoundEffect(damageSound);
-            }
         }
     }
 }

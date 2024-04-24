@@ -3,10 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace EasyTransition
-{
 
-    public class ContainerDoorGameLost : MonoBehaviour
+
+public class ContainerDoorGameLost : MonoBehaviour
     {
         public float delayBeforeClosing = 3f; // Delay before the door starts closing
         public float closingSpeed = 90f; // Speed at which the door closes (degrees per second)
@@ -48,10 +47,7 @@ namespace EasyTransition
 
             // Activate the game end canvas
             gameEndCanvas.gameObject.SetActive(true);
-
-            //yield return new WaitForSeconds(3f); // Change the delay time as needed
             TransitionManager.Instance().Transition(0,transition, 2f);
 
         }
     }
-}

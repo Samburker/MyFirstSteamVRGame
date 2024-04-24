@@ -16,6 +16,8 @@ TagManager:
   - Zombie
   - Generator
   - Target
+  - StartItem
+  - FloorCollider
   layers:
   - Default
   - TransparentFX
