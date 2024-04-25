@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetHeight: 3
   moveDuration: 5
-  closeDelay: 10
+  closeDelay: 90
   leaveDoorOpen: 0
   openSound: {fileID: 8300000, guid: ebc6515841150b44b96210aef4822d5f, type: 3}
   closeSound: {fileID: 8300000, guid: ebc6515841150b44b96210aef4822d5f, type: 3}
@@ -4154,7 +4154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &938604142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4171,10 +4171,11 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1069946985}
   - {fileID: 1617752059}
-  maxZombies: 6
+  maxZombies: 10
   spawnOnStart: 1
   groundReference: {fileID: 938604141}
   minDistance: 0.5
+  spawnInterval: 5
 --- !u!4 &938604143
 Transform:
   m_ObjectHideFlags: 0
@@ -8120,7 +8121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4347e660e1efa4597136369cb7b004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackingTimeLimit: 10
+  stackingTimeLimit: 100
   successSound: {fileID: 8300000, guid: 1be9b8ddc74619d4fa8f4f051d203500, type: 3}
   healthLostPerMissile: 1
   palletTag: Pallet

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class ZombieSpawner : MonoBehaviour
@@ -9,17 +10,33 @@ public class ZombieSpawner : MonoBehaviour
     public bool spawnOnStart = false; // Whether to spawn zombies on start
     public GameObject groundReference; // Object whose y-position will be used as the ground level reference
     public float minDistance = 2f; // Minimum distance between spawned zombies
+    public float spawnInterval = 5f; // Time interval between spawns
+    private List<GameObject> spawnedZombies = new List<GameObject>(); // List to store spawned zombies
+    private int currentSpawnPointIndex = 0; // Index to track current spawn point
 
     private void Start()
     {
         if (spawnOnStart)
         {
-            SpawnZombies();
+            StartCoroutine(SpawnZombiesRoutine());
         }
     }
 
-    // Method to spawn zombies around the spawn points
-    public void SpawnZombies()
+    // Coroutine to continuously spawn zombies
+    private IEnumerator SpawnZombiesRoutine()
+    {
+        while (true)
+        {
+            if (spawnedZombies.Count < maxZombies)
+            {
+                SpawnZombie();
+            }
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+
+    // Method to spawn a single zombie from the next spawn point
+    private void SpawnZombie()
     {
         if (groundReference == null)
         {
@@ -30,45 +47,40 @@ public class ZombieSpawner : MonoBehaviour
         // Get the ground level from the reference object's y-position
         float groundLevel = groundReference.transform.position.y;
 
-        List<Vector3> spawnPositions = new List<Vector3>();
+        // Choose the current spawn point
+        Transform spawnPoint = spawnPoints[currentSpawnPointIndex];
 
-        while (spawnPositions.Count < maxZombies)
+        // Increment the index to move to the next spawn point (loop around if necessary)
+        currentSpawnPointIndex = (currentSpawnPointIndex + 1) % spawnPoints.Length;
+
+        // Generate a random angle around the spawn point
+        float angle = Random.Range(0f, 360f);
+        // Calculate the spawn position based on the angle and distance from the spawn point
+        Vector3 spawnDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
+        Vector3 spawnPosition = spawnPoint.position + spawnDirection;
+
+        // Set the y-coordinate of the spawn position to match the ground level
+        spawnPosition.y = groundLevel;
+
+        // Check if the new spawn position is too close to existing spawn positions
+        bool tooClose = false;
+        foreach (GameObject zombie in spawnedZombies)
         {
-            // Choose a random spawn point from the array
-            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-            // Generate a random angle around the spawn point
-            float angle = Random.Range(0f, 360f);
-            // Calculate the spawn position based on the angle and distance from the spawn point
-            Vector3 spawnDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
-            Vector3 spawnPosition = randomSpawnPoint.position + spawnDirection;
-
-            // Set the y-coordinate of the spawn position to match the ground level
-            spawnPosition.y = groundLevel;
-
-            // Check if the new spawn position is too close to existing spawn positions
-            bool tooClose = false;
-            foreach (Vector3 existingPosition in spawnPositions)
+            if (Vector3.Distance(spawnPosition, zombie.transform.position) < minDistance)
             {
-                if (Vector3.Distance(spawnPosition, existingPosition) < minDistance)
-                {
-                    tooClose = true;
-                    break;
-                }
+                tooClose = true;
+                break;
             }
+        }
 
-            if (tooClose)
-            {
-                // Skip this iteration if too close to existing zombies
-                continue;
-            }
-
+        if (!tooClose)
+        {
             // Spawn the zombie at the calculated position
-            GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+            GameObject newZombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
             // Optionally, you can set up any other properties of the spawned zombies here
 
-            // Add the spawn position to the list
-            spawnPositions.Add(spawnPosition);
+            // Add the spawned zombie to the list
+            spawnedZombies.Add(newZombie);
         }
     }
 }
