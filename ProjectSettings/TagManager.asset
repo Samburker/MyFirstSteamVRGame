@@ -18,6 +18,8 @@ TagManager:
   - Target
   - StartItem
   - FloorCollider
+  - projectile
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -28,7 +30,7 @@ TagManager:
   - Player
   - Teleport Area
   - Zombie
-  - 
+  - GroundDrop
   - 
   - 
   - 

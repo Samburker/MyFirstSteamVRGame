@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
 using EasyTransition;
+using Valve.VR;
 
 public class Clock : MonoBehaviour
 {
@@ -18,9 +19,11 @@ public class Clock : MonoBehaviour
 
     private void Start()
     {
+      
         // Convert start and end times from string to DateTime
         startTimeDT = DateTime.ParseExact(startTime, "HH:mm", null);
         endTimeDT = DateTime.ParseExact(endTime, "HH:mm", null);
+        
     }
 
     private void Update()
@@ -37,11 +40,15 @@ public class Clock : MonoBehaviour
         }
         else
         {
-            timerText.text = endTime;
-            // Load next scene when timer ends
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            TransitionManager.Instance().Transition(currentSceneIndex+1, transition, 2f);
-          
+
+            SteamVR_Fade.Start(Color.black, 1);
+            SteamVR_Fade.Start(Color.clear, 0);
+            Scene currentScene = SceneManager.GetActiveScene();
+            TransitionManager.Instance().Transition(currentScene.buildIndex + 1, transition, 1f);
+
+
         }
+       
     }
+  
 }

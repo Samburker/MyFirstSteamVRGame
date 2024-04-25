@@ -5,16 +5,16 @@ using Valve.VR;
 
 public static class PlayerStats
 {
-    public static int maxHealth = 1; // Maximum health points
+    public static int maxHealth = 100; // Maximum health points
     public static int currentHealth; // Current health points
 
     static PlayerStats()
     {
         // Initialize health points
         if (SceneManager.GetActiveScene().name == "Day1" || SceneManager.GetActiveScene().name == "START GAME")
-        {
+        
             currentHealth = maxHealth;
-        }
+        
     }
 }
 
@@ -85,18 +85,15 @@ public class Health : MonoBehaviour
         // Check if health has reached zero
         if (PlayerStats.currentHealth <= 0)
         {
-            if (damageSounds.Length > 0 && audioSource != null)
-            {
-                AudioClip randomSound = damageSounds[Random.Range(0, damageSounds.Length)];
-                audioSource.PlayOneShot(randomSound);
-                Invoke("PlayVoiceLine", 1f); //play Serenity voiceline after a second has passed from taking error damage 
-
-            }
+            AudioClip randomSound = damageSounds[Random.Range(0, damageSounds.Length)];
+            audioSource.PlayOneShot(randomSound);
+            Die();
+           
             if (damageParticles != null)
             {
                 ActivateDamageParticles();
             }
-            Die();
+           
         }
         else
         {
@@ -163,7 +160,8 @@ public class Health : MonoBehaviour
     // Method called when health reaches zero
     private void Die()
     {
-        SteamVR_Fade.View(Color.black, 1);
+        SteamVR_Fade.Start(Color.black, 1);
+        SteamVR_Fade.Start(Color.clear, 0);
         TransitionManager.Instance().Transition(7, transition, 1f);
     }
 }
