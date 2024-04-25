@@ -4,13 +4,13 @@ using UnityEngine.SceneManagement;
 
 public static class PlayerStats
 {
-    public static int maxHealth = 10; // Maximum health points
+    public static int maxHealth = 100; // Maximum health points
     public static int currentHealth; // Current health points
 
     static PlayerStats()
     {
         // Initialize health points
-        if (SceneManager.GetActiveScene().name == "Day1")
+        if (SceneManager.GetActiveScene().name == "Day1" || SceneManager.GetActiveScene().name == "START GAME")
         {
             currentHealth = maxHealth;
         }

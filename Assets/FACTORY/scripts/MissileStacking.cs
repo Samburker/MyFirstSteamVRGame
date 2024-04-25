@@ -5,7 +5,6 @@ public class MissileStacking : MonoBehaviour
     [Tooltip("Stacking timer starts when explicitly started.")]
     public float stackingTimeLimit = 30f; // Time limit for stacking missiles
     public AudioClip successSound; // Sound to play when stacking is successful
-    public AudioClip failSound; // Sound to play when stacking fails
     public int healthLostPerMissile = 1; // Health points lost per missile not on pallet
     public string palletTag = "Pallet"; // Tag of the pallet collider
 
@@ -70,7 +69,7 @@ public class MissileStacking : MonoBehaviour
                     }
                     else
                     {
-                        AudioManager.Instance.PlaySoundEffect(failSound);
+                 
                         hasFailed = true;
                     }
                 }

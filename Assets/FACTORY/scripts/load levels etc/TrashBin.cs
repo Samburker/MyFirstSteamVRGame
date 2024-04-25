@@ -9,7 +9,6 @@ namespace EasyTransition
     public class TrashBin : MonoBehaviour
     {
         public TransitionSettings transition;
-        public string transitionSceneName = "TransitionScene"; // Name of the transition scene
 
         private void OnTriggerEnter(Collider other)
         {
