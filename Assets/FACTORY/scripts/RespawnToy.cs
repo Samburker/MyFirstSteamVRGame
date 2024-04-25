@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RespawnToy : MonoBehaviour
 {
-    public GameObject spawnPoint;
+    public Transform spawnPoint;
 
     void Start()
     {
@@ -16,14 +16,23 @@ public class RespawnToy : MonoBehaviour
     {
         if (other.CompareTag("FloorCollider"))
         {
-            Respawn();
+            MoveToSpawnPoint();
         }
     }
 
-    void Respawn()
+    void MoveToSpawnPoint()
     {
+        // Reset the position and rotation of the current object to match the spawn point
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
 
-        GameObject newObject = Instantiate(gameObject, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        Destroy(newObject.GetComponent<RespawnToy>());
+        // Reset the velocity to zero to remove momentum
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
     }
+
 }

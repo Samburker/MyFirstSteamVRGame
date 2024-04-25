@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using EasyTransition;
 
 public class Clock : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Clock : MonoBehaviour
     private DateTime startTimeDT; // Start time as DateTime
     private DateTime endTimeDT; // End time as DateTime
     private float timeElapsed = 0f; // Time elapsed since the start of the day
+    public TransitionSettings transition;
 
     private void Start()
     {
@@ -38,7 +40,8 @@ public class Clock : MonoBehaviour
             timerText.text = endTime;
             // Load next scene when timer ends
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentSceneIndex + 1);
+            TransitionManager.Instance().Transition(currentSceneIndex+1, transition, 2f);
+          
         }
     }
 }

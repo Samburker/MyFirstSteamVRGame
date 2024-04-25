@@ -1119,7 +1119,7 @@ MonoBehaviour:
     needsReinit: 0
   hapticAction:
     actionPath: /actions/default/out/Haptic
-    needsReinit: 0
+    needsReinit: 1
   uiInteractAction:
     actionPath: /actions/default/in/InteractUI
     needsReinit: 0
@@ -1259,7 +1259,7 @@ MonoBehaviour:
     needsReinit: 0
   hapticAction:
     actionPath: /actions/default/out/Haptic
-    needsReinit: 0
+    needsReinit: 1
   uiInteractAction:
     actionPath: /actions/default/in/InteractUI
     needsReinit: 0
@@ -1336,7 +1336,7 @@ MonoBehaviour:
   handCollider: {fileID: 0}
   clearanceCheckMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 247
   hand: {fileID: 0}
 --- !u!1 &165334
 GameObject:
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initializeSteamVROnAwake: 1
-  doNotDestroy: 1
+  doNotDestroy: 0
   steamvr_render: {fileID: 0}
 --- !u!114 &11479638
 MonoBehaviour:

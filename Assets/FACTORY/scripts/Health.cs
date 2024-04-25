@@ -1,10 +1,11 @@
 using UnityEngine;
 using EasyTransition;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public static class PlayerStats
 {
-    public static int maxHealth = 100; // Maximum health points
+    public static int maxHealth = 1; // Maximum health points
     public static int currentHealth; // Current health points
 
     static PlayerStats()
@@ -162,6 +163,7 @@ public class Health : MonoBehaviour
     // Method called when health reaches zero
     private void Die()
     {
-        TransitionManager.Instance().Transition(7, transition, 4f);
+        SteamVR_Fade.View(Color.black, 1);
+        TransitionManager.Instance().Transition(7, transition, 1f);
     }
 }
