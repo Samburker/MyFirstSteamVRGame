@@ -5,7 +5,7 @@ using Valve.VR;
 
 public static class PlayerStats
 {
-    public static int maxHealth = 100; // Maximum health points
+    public static int maxHealth = 50; // Maximum health points
     public static int currentHealth; // Current health points
 
     static PlayerStats()

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2b5ce661b2d2e3a43bebf777ccbfefdc, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1677,7 +1677,6 @@ GameObject:
   - component: {fileID: 398754263}
   - component: {fileID: 398754262}
   - component: {fileID: 398754261}
-  - component: {fileID: 398754265}
   m_Layer: 0
   m_Name: FloorDropCollider
   m_TagString: FloorCollider
@@ -1771,18 +1770,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &398754265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398754260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583aa68e556ff794182c1416144ea8e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &431617893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2231,7 +2218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c21f91b75f17c479c028f0c4120d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 940149687}
+  spawnPoint: {fileID: 940149688}
 --- !u!1001 &524725808
 PrefabInstance:
   m_ObjectHideFlags: 0

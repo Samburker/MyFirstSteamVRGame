@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: f958a5f7b3783d54a8c679ae6598977a, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -8366,7 +8366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7193f0f563179045a09c0b0ac6cb68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: -2
+  moveSpeed: -2.5
 --- !u!65 &1596075249
 BoxCollider:
   m_ObjectHideFlags: 0
