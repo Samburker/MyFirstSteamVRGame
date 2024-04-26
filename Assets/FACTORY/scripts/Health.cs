@@ -11,7 +11,7 @@ public static class PlayerStats
     static PlayerStats()
     {
         // Initialize health points
-        if (SceneManager.GetActiveScene().name == "Day1" || SceneManager.GetActiveScene().name == "START GAME")
+        //if (SceneManager.GetActiveScene().name == "Day1" || SceneManager.GetActiveScene().name == "START GAME")
         
             currentHealth = maxHealth;
         

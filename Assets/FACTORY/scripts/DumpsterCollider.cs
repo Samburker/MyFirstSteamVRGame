@@ -19,9 +19,9 @@ public class DumpsterCollider : MonoBehaviour
         // Check if the colliding object has a specific tag
         if (other.CompareTag("FalseItem"))
         {
+            Destroy(other.gameObject);
             audiosource.PlayOneShot(successSound);
             // Destroy the specific item
-            Destroy(other.gameObject);
         }
         else
         {
