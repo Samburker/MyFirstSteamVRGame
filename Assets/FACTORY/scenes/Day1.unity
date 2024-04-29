@@ -2762,7 +2762,6 @@ GameObject:
   - component: {fileID: 599510450}
   - component: {fileID: 599510449}
   - component: {fileID: 599510448}
-  - component: {fileID: 599510447}
   m_Layer: 0
   m_Name: Radio instructions
   m_TagString: Untagged
@@ -2770,20 +2769,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &599510447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599510446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df316a44f3bc9d848ad20b0ebc557ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasObject: {fileID: 599510446}
-  appearanceDelay: 37
 --- !u!114 &599510448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9678,7 +9663,7 @@ MonoBehaviour:
   timerText: {fileID: 106198478}
   startTime: 06:00
   endTime: 18:00
-  dayLengthInSeconds: 10
+  dayLengthInSeconds: 60
   transition: {fileID: 11400000, guid: 06fa0ad2bc756f44ab258bc74947381d, type: 2}
 --- !u!114 &1665498378
 MonoBehaviour:

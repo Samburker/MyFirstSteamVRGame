@@ -3660,7 +3660,7 @@ MonoBehaviour:
   - {fileID: 127913680}
   - {fileID: 2060112856}
   maxZombies: 10
-  spawnOnStart: 1
+  spawnOnStart: 0
   groundReference: {fileID: 938604141}
   minDistance: 0.5
   spawnInterval: 0
@@ -4402,7 +4402,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 159d8c4c0d04cd9478c33944ddcb0f45, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: cdea201154c70f241b1db64709c37f82, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1070793497
 Transform:
