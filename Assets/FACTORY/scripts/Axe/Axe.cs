@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using Valve.VR;
 
 public class Axe : MonoBehaviour
 {
@@ -38,8 +38,6 @@ public class Axe : MonoBehaviour
                     PlayRandomHitSound();
                     zombieAudio.PlayHealthLossSound();
                 }
-
-            
             }
         }
     }
@@ -53,6 +51,18 @@ public class Axe : MonoBehaviour
             audioSource.PlayOneShot(randomSound);
         }
     }
-  
 
+    // Update is called once per frame
+    void Update()
+    {
+        // Check the velocity of the controller
+        SteamVR_Behaviour_Pose trackedObj = GetComponentInParent<SteamVR_Behaviour_Pose>();
+        if (trackedObj != null)
+        {
+            Vector3 controllerVelocity = trackedObj.GetVelocity();
+
+            // You can use controllerVelocity.magnitude to check the magnitude of the velocity
+            // and compare it with your minimum impact velocity if needed.
+        }
+    }
 }
