@@ -17,7 +17,8 @@ namespace EasyTransition
             {
                 Destroy(other.gameObject);
                 Scene currentScene = SceneManager.GetActiveScene();
-                TransitionManager.Instance().Transition(currentScene.buildIndex+1, transition, 2f);
+                SceneTransitionManager.instance.TransitionToNextScene(currentScene.buildIndex+1);
+                //TransitionManager.Instance().Transition(currentScene.buildIndex+1, transition, 2f);
             }
         }
     }

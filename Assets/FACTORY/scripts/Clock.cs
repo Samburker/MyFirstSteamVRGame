@@ -16,6 +16,7 @@ public class Clock : MonoBehaviour
     private DateTime endTimeDT; // End time as DateTime
     private float timeElapsed = 0f; // Time elapsed since the start of the day
     public TransitionSettings transition;
+    private bool dayEnded = false; // Flag to track whether the day has ended
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class Clock : MonoBehaviour
         endTimeDT = DateTime.ParseExact(endTime, "HH:mm", null);
         
     }
+
 
     private void Update()
     {
@@ -38,17 +40,16 @@ public class Clock : MonoBehaviour
             DateTime currentTime = startTimeDT.Add(timeToAdd);
             timerText.text = currentTime.ToString(@"HH\:mm");
         }
-        else
+        else if (!dayEnded) // Check if the day hasn't ended yet
         {
+            // Set the flag to indicate that the day has ended
+            dayEnded = true;
 
-            SteamVR_Fade.Start(Color.black, 1);
-            SteamVR_Fade.Start(Color.clear, 0);
+            // Transition to the next scene
             Scene currentScene = SceneManager.GetActiveScene();
-            TransitionManager.Instance().Transition(currentScene.buildIndex + 1, transition, 1f);
-
-
+            SceneTransitionManager.instance.TransitionToNextScene(currentScene.buildIndex + 1);
         }
-       
     }
-  
+
+
 }

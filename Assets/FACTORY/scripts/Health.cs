@@ -11,7 +11,7 @@ public static class PlayerStats
     static PlayerStats()
     {
         // Initialize health points
-        //if (SceneManager.GetActiveScene().name == "Day1" || SceneManager.GetActiveScene().name == "START GAME")
+        if (SceneManager.GetActiveScene().name == "Day1" || SceneManager.GetActiveScene().name == "START GAME")
         
             currentHealth = maxHealth;
         
@@ -28,6 +28,7 @@ public class Health : MonoBehaviour
     public AudioClip[] zombiedamageSounds; // Array of damage sound effects
     public AudioSource audioSource; // Reference to the player's AudioSource
     public TransitionSettings transition;
+    private bool nextSceneLoadingHasStarted = false;
 
     // Initialize health points
     private void Start()
@@ -160,8 +161,12 @@ public class Health : MonoBehaviour
     // Method called when health reaches zero
     private void Die()
     {
-        SteamVR_Fade.Start(Color.black, 1);
-        SteamVR_Fade.Start(Color.clear, 0);
-        TransitionManager.Instance().Transition(7, transition, 1f);
+        if(nextSceneLoadingHasStarted == false)
+        {
+            nextSceneLoadingHasStarted = true;
+            SceneTransitionManager.instance.TransitionToNextScene(7);
+            //TransitionManager.Instance().Transition(7, transition, 1f);
+        }
+
     }
 }

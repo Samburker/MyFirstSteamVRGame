@@ -9138,6 +9138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1661877805}
   - component: {fileID: 1661877804}
+  - component: {fileID: 1661877806}
   m_Layer: 0
   m_Name: TransitionManager
   m_TagString: Untagged
@@ -9173,6 +9174,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1661877806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661877803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55b93f1b82e00f4c9d1f67ccc473818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1678481743
 PrefabInstance:
   m_ObjectHideFlags: 0

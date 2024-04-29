@@ -47,7 +47,8 @@ public class ContainerDoorGameLost : MonoBehaviour
 
             // Activate the game end canvas
             gameEndCanvas.gameObject.SetActive(true);
-            TransitionManager.Instance().Transition(0,transition, 2f);
+        SceneTransitionManager.instance.TransitionToNextScene(0);
+        //SceneTransitionManager.instance.TransitionToNextScene(7);
 
-        }
+    }
     }

@@ -23,12 +23,12 @@ public class Axe : MonoBehaviour
         // Check if the collision is with an object tagged as a zombie
         if (collision.gameObject.CompareTag(zombieTag))
         {
-            Debug.Log("COLLISION");
+            
             // Get the controller velocity from the ControllerVelocity script
             if (controllerVelocityScript != null)
             {
                 float impactVelocity = controllerVelocityScript.GetControllerVelocity();
-
+                Debug.Log(impactVelocity);
                 // Check if impact velocity is sufficient to register a hit
                 if (impactVelocity >= minImpactVelocity)
                 {
