@@ -36,7 +36,7 @@ public class ZombieRagdollSwitch : MonoBehaviour
     public void TakeDamage()
     {
 
-        // If hit by a weapon, decrease health
+        // decrease health
         health--;
         Debug.Log("Zombie health lost");
 

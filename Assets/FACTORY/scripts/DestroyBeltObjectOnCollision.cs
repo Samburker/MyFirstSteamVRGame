@@ -4,9 +4,11 @@ public class DestroyBeltObjectOnCollision : MonoBehaviour
 {
     private Health playerHealth; // Reference to the Health script attached to the player
     public AudioClip damageSound; // Sound to play when taking damage
+    private AudioSource audiosource;
 
     private void Start()
     {
+        audiosource = GetComponent<AudioSource>();
         // Find the player GameObject and get the Health component attached to it
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
     }
@@ -25,7 +27,7 @@ public class DestroyBeltObjectOnCollision : MonoBehaviour
             // Play damage sound through AudioManager if assigned
             if (damageSound != null)
             {
-                AudioManager.Instance.PlaySoundEffect(damageSound);
+                audiosource.PlayOneShot(damageSound);
             }
 
             Destroy(collision.gameObject);
